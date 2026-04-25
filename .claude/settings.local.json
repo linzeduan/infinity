@@ -16,7 +16,8 @@
       "Bash(git add *)",
       "Bash(git commit -m 'feat: 知识库系统 + 配置跨设备同步 *)",
       "Bash(git push *)",
-      "Bash(git pull *)"
+      "Bash(git pull *)",
+      "Bash(git commit *)"
     ]
   }
 }
