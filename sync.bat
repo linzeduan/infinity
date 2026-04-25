@@ -1,5 +1,5 @@
 @echo off
-cd /d "d:\Abandon\无限进步"
+cd /d "d:\Abandon\infinity"
 
 echo.
 echo [1/3] Pulling remote updates...
