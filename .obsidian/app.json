@@ -1,0 +1,7 @@
+{
+  "promptDelete": false,
+  "attachmentFolderPath": "./",
+  "newFileLocation": "current",
+  "alwaysUpdateLinks": true,
+  "defaultViewMode": "source"
+}

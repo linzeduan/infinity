@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx skills *)",
+      "Read(//c/Users/29443/.agents/skills/pdf-converter/**)",
+      "Bash(mineru-open-api flash-extract *)",
+      "Bash(npm install *)",
+      "Bash(mineru-open-api auth *)",
+      "Bash(export MINERU_TOKEN=\"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFM1MTIifQ.eyJqdGkiOiIxMzgwMDQ4NyIsInJvbCI6IlJPTEVfUkVHSVNURVIiLCJpc3MiOiJPcGVuWExhYiIsImlhdCI6MTc3NzAwMTk1MywiY2xpZW50SWQiOiJsa3pkeDU3bnZ5MjJqa3BxOXgydyIsInBob25lIjoiIiwib3BlbklkIjpudWxsLCJ1dWlkIjoiZWMwMTdiMGYtOTE0OC00YTY4LWE5NzYtNDVjYzNiZDk5MjIxIiwiZW1haWwiOiIiLCJleHAiOjE3ODQ3Nzc5NTN9.znK0JTtbF8XPQ1G2G4RCU5zhsacyvMcf9owIpL0UUpt2wCdPcZqSprzNBw3DLBoFRiuMqH7tZjmlP-myZy4XGQ\")",
+      "Bash(mineru-open-api extract *)",
+      "Bash(grep \"\\\\.md$\")",
+      "Bash(grep -E \"\\\\.md$\")",
+      "WebSearch",
+      "Bash(git reset *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'feat: 知识库系统 + 配置跨设备同步 *)",
+      "Bash(git push *)"
+    ]
+  }
+}

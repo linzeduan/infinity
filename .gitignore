@@ -1,0 +1,32 @@
+# 系统文件
+.DS_Store
+Thumbs.db
+*.tmp
+
+# IDE/编辑器
+.vscode/extensions
+.idea/
+*.swp
+
+# 日志和缓存（本地临时）
+*.log
+.cache/
+
+# 大文件（如果用Git LFS）
+*.psd
+*.mp4
+
+# Node模块
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# 临时编辑文件
+~$*
+
+# 不同步的个人环境
+.env.local
+.env.*.local
