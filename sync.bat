@@ -7,7 +7,7 @@ git pull origin main
 
 echo.
 echo [2/3] Committing local changes...
-git add .
+git add --force .
 git commit -m "sync: auto sync [%date%]" || echo No changes to commit
 
 echo.
