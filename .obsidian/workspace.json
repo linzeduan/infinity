@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/index.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "README"
             }
           }
         ]
@@ -187,8 +187,8 @@
   "active": "0db97c5ba74ff492",
   "lastOpenFiles": [
     "CLAUDE.md",
-    "README.md",
     "知识库/index.md",
+    "README.md",
     "知识库/2026-04-26_analysis_光电子半导体短周期调整研判.md"
   ]
 }
