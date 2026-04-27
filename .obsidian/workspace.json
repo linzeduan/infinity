@@ -1,25 +1,25 @@
 {
   "main": {
-    "id": "e8a2126b1ff9eb1a",
+    "id": "0b9f75d88b20cb67",
     "type": "split",
     "children": [
       {
-        "id": "881a929c7bbd62bb",
+        "id": "a8bfa39e8657e8d1",
         "type": "tabs",
         "children": [
           {
-            "id": "e9da058d94e08b0a",
+            "id": "0db97c5ba74ff492",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "知识库/index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "index"
             }
           }
         ]
@@ -28,15 +28,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "1ee5f2a53e35cc34",
+    "id": "9613987e73592b38",
     "type": "split",
     "children": [
       {
-        "id": "a40d51e46e64712a",
+        "id": "624877054368fd06",
         "type": "tabs",
         "children": [
           {
-            "id": "9f3ffe0b29e1c404",
+            "id": "a4c44fdd6516dc7a",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -49,7 +49,7 @@
             }
           },
           {
-            "id": "512bdbef87c48d85",
+            "id": "3c762353070163ac",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -66,7 +66,7 @@
             }
           },
           {
-            "id": "b0895b26ee08e12c",
+            "id": "af699560113f38f1",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -79,24 +79,24 @@
       }
     ],
     "direction": "horizontal",
-    "width": 347.5
+    "width": 300
   },
   "right": {
-    "id": "d589f7a953289618",
+    "id": "89b9e406a053a8ed",
     "type": "split",
     "children": [
       {
-        "id": "dfe4914bdf713715",
+        "id": "a3f24b3f21c485b8",
         "type": "tabs",
         "children": [
           {
-            "id": "f64248924c604974",
+            "id": "bcfbf84551d738d7",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
                 "file": "CLAUDE.md",
-                "collapseAll": true,
+                "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
@@ -109,13 +109,13 @@
             }
           },
           {
-            "id": "75028e6964a1e8ac",
+            "id": "94969114ee245c7c",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
                 "file": "CLAUDE.md",
-                "linksCollapsed": true,
+                "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
@@ -123,13 +123,13 @@
             }
           },
           {
-            "id": "c9d919a24d0cef64",
+            "id": "1c1101988c3e81d0",
             "type": "leaf",
             "state": {
               "type": "tag",
               "state": {
                 "sortOrder": "frequency",
-                "useHierarchy": false,
+                "useHierarchy": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -138,7 +138,7 @@
             }
           },
           {
-            "id": "2f6831694710f1d3",
+            "id": "afbd36c3c5212ea5",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -152,26 +152,25 @@
             }
           },
           {
-            "id": "1474047df8ed6344",
+            "id": "b43dd633d9dca095",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
                 "file": "CLAUDE.md",
                 "followCursor": false,
-                "showSearch": true,
+                "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
               "title": "CLAUDE 的大纲"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 402.5,
+    "width": 300,
     "collapsed": true
   },
   "left-ribbon": {
@@ -185,78 +184,11 @@
       "bases:新建数据库": false
     }
   },
-<<<<<<< HEAD
-  "active": "0f35a0091f8b7a68",
+  "active": "0db97c5ba74ff492",
   "lastOpenFiles": [
-    "知识库/index.md",
     "CLAUDE.md",
     "README.md",
-    "原始资料/博客/浪淘沙投研说/洗盘还是见顶？.md",
-    "知识库/2026-04-25_analysis_苹果终端AI定价权体系.md",
-    "知识库/2026-04-25_framework_成交量风险评估.md",
-    "知识库/2026-04-25_framework_物理瓶颈论.md",
-    "知识库/2026-04-25_profile_个人心理画像.md",
-    "知识库/_processed.md",
-    "知识库/2026-04-24_model_黄哥投资决策体系.md",
-    "知识库/2026-04-25_analysis_短期市场节奏判断框架.md",
-    "知识库/2026-04-24_analysis_苹果AI第二增长曲线.md",
-    "原始资料/博客/黄哥/260425直播.pdf",
-    "知识库/_processed.md.tmp.1064.1777099552017",
-    "原始资料/博客/黄哥/260425直播.md",
-    "知识库/2026-04-25_analysis_苹果生态与AI时代战略分析.md",
-    "知识库/2026-04-24_analysis_阿根廷米莱改革.md",
-    "temp_extract/260425直播.md",
-    "temp_extract",
-    "原始资料/博客/浪淘沙投研说/未命名.md",
-    "知识库/1.md",
-    "原始资料/博客/浪淘沙投研说",
-    "原始资料/博客/未命名",
-    "未命名",
-=======
-  "active": "e9da058d94e08b0a",
-  "lastOpenFiles": [
-    "知识库/2026-04-26_analysis_光电子半导体短周期调整研判.md",
-    "原始资料/博客/浪淘沙投研说/洗盘还是见顶？.md",
-    "CLAUDE.md",
     "知识库/index.md",
-    "知识库/2026-04-25_profile_个人心理画像.md",
-    "知识库/2026-04-25_framework_物理瓶颈论.md",
-    "知识库/2026-04-25_framework_成交量风险评估.md",
-    "知识库/2026-04-25_analysis_苹果终端AI定价权体系.md",
-    "知识库/2026-04-24_model_黄哥投资决策体系.md",
-    "知识库/2026-04-24_analysis_AI时代的平台竞争格局.md",
-    "知识库/2026-04-24_analysis_中国AI公司战略困局.md",
-    "知识库/2026-04-24_analysis_中国房地产系统性危机.md",
-    "知识库/2026-04-24_analysis_伊朗以色列中东格局.md",
-    "知识库/2026-04-24_analysis_养老行业的细分机会.md",
-    "知识库/2026-04-24_analysis_现代婚姻经济学.md",
-    "知识库/2026-04-24_analysis_微软AI时代战略.md",
-    "知识库/2026-04-24_analysis_特斯拉的五阶段演进.md",
-    "知识库/2026-04-24_analysis_生猪养殖周期与淘汰赛.md",
-    "知识库/2026-04-24_analysis_全球资产配置与估值对比.md",
->>>>>>> e2cb5c265ba14847cf9c62d3ad2cc1d111c29ac2
-    "知识库/2026-04-24_analysis_全球流动性危机预警.md",
-    "知识库/2026-04-24_analysis_苹果AI第二增长曲线.md",
-    "知识库/2026-04-24_analysis_苹果手表医疗AI入口.md",
-    "知识库/2026-04-24_analysis_美国政策与黄金走势.md",
-    "知识库/2026-04-24_analysis_茅台的政治溢价机制.md",
-    "知识库/2026-04-24_analysis_麦当劳与蜜雪冰城对比.md",
-    "知识库/2026-04-24_analysis_岚图投资财务分析.md",
-    "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
-    "原始资料/博客/黄哥/标的.png",
-    "原始资料/博客/黄哥/260425直播.pdf",
-    "知识库/index.md.tmp.26032.1777164733912",
-    "知识库/index.md.tmp.26032.1777164726195",
-    "知识库/index.md.tmp.26032.1777164719036",
-    "知识库/index.md.tmp.26032.1777164704249",
-    "知识库/_processed.md.tmp.26032.1777164519357",
-    "知识库/index.md.tmp.26032.1777164505278",
-    "知识库/_processed.md.tmp.26032.1777163836753",
-    "知识库/index.md.tmp.2636.1777162504437",
-    "知识库/index.md.tmp.2636.1777162497221",
-    "原始资料/博客/黄哥/260402 茅台分析.png",
-    "原始资料/博客/黄哥/茅台分析.png",
-    "Pasted image 20260423152547.png",
-    "Pasted image 20260423152542.png"
+    "知识库/2026-04-26_analysis_光电子半导体短周期调整研判.md"
   ]
 }
