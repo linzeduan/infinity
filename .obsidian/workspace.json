@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/index.md",
+                "file": "目录.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "目录"
             }
           }
         ]
@@ -95,17 +95,17 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CLAUDE.md",
-                "collapseAll": false,
+                "file": "目录.md",
+                "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
                 "showSearch": false,
                 "searchQuery": "",
-                "backlinkCollapsed": false,
+                "backlinkCollapsed": true,
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "CLAUDE 的反向链接列表"
+              "title": "目录 的反向链接列表"
             }
           },
           {
@@ -114,12 +114,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "目录.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "CLAUDE 的出链列表"
+              "title": "目录 的出链列表"
             }
           },
           {
@@ -170,8 +170,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -186,8 +185,19 @@
   },
   "active": "0db97c5ba74ff492",
   "lastOpenFiles": [
-    "知识库/2026-04-26_analysis_光电子半导体短周期调整研判.md",
+    "CLAUDE.md",
+    "README.md",
+    "目录.md",
     "知识库/index.md",
+    "知识库/2026-04-27_idea_研究公司基本面的问题框架.md",
+    "知识库/2026-04-24_analysis_阿根廷米莱改革.md",
+    "原始资料/博客/黄哥/260404 港股定价权.md",
+    "知识库/2026-04-24_model_黄哥投资决策体系.md",
+    "知识库/2026-04-24_analysis_伊朗以色列中东格局.md",
+    "知识库/2026-04-24_analysis_麦当劳与蜜雪冰城对比.md",
+    "知识库/2026-04-24_analysis_好生意的标准框架.md",
+    "知识库/2026-04-24_analysis_港股内地化与定价权.md",
+    "知识库/2026-04-26_analysis_光电子半导体短周期调整研判.md",
     "原始资料/博客/dontbesilent/dontbesilent 问题消解 100 例.md",
     "原始资料/博客/浪淘沙投研说/洗盘还是见顶？.md",
     "原始资料/博客/浪淘沙投研说/超级周来了！.md",
@@ -201,17 +211,6 @@
     "知识库/2026-04-27_framework_dontbesilent问题诊断体系.md",
     "知识库/2026-04-27_analysis_超级周流动性与板块轮动.md",
     "知识库/2026-04-25_profile_个人心理画像.md",
-    "知识库/2026-04-24_analysis_AI时代的平台竞争格局.md",
-    "知识库/2026-04-24_analysis_伊朗以色列中东格局.md",
-    "知识库/2026-04-24_analysis_养老行业的细分机会.md",
-    "知识库/2026-04-24_analysis_现代婚姻经济学.md",
-    "知识库/2026-04-24_analysis_中国房地产系统性危机.md",
-    "知识库/2026-04-25_analysis_苹果终端AI定价权体系.md",
-    "知识库/2026-04-25_framework_物理瓶颈论.md",
-    "知识库/2026-04-25_framework_成交量风险评估.md",
-    "知识库/2026-04-24_analysis_中国AI公司战略困局.md",
-    "知识库/2026-04-24_model_黄哥投资决策体系.md",
-    "CLAUDE.md",
     "原始资料/博客/dontbesilent"
   ]
 }
