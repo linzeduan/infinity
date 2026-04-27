@@ -1,5 +1,4 @@
 @echo off
-chcp 65001 >nul
 cd /d "d:\Abandon\infinity"
 
 echo [1/3] Saving local changes...
@@ -7,10 +6,7 @@ git add --force .
 git commit -m "sync: auto sync [%date% %time%]" || echo No changes to commit
 
 echo [2/3] Pulling remote updates...
-git pull origin main --rebase || (
-    echo Pull failed, aborting rebase...
-    git rebase --abort
-)
+git pull origin main --rebase
 
 echo [3/3] Pushing to Github...
 git push origin main
