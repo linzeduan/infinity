@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "原始资料/博客/dontbesilent/dontbesilent 问题消解 100 例.md",
+                "file": "知识库/index.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "dontbesilent 问题消解 100 例"
+              "title": "index"
             }
           }
         ]
@@ -186,6 +186,9 @@
   },
   "active": "0db97c5ba74ff492",
   "lastOpenFiles": [
+    "知识库/2026-04-26_analysis_光电子半导体短周期调整研判.md",
+    "知识库/index.md",
+    "原始资料/博客/dontbesilent/dontbesilent 问题消解 100 例.md",
     "原始资料/博客/浪淘沙投研说/洗盘还是见顶？.md",
     "原始资料/博客/浪淘沙投研说/超级周来了！.md",
     "原始资料/博客/黄哥/260409 地级市岚图是否值得.md",
@@ -194,11 +197,9 @@
     "原始资料/博客/黄哥/260403直播.md",
     "原始资料/博客/黄哥/260403 伊朗-以色列-石油君主国.md",
     "原始资料/博客/黄哥/260402 茅台分析.md",
-    "原始资料/博客/dontbesilent/dontbesilent 问题消解 100 例.md",
     "原始资料/博客/dontbesilent/dontbesilent.md",
     "知识库/2026-04-27_framework_dontbesilent问题诊断体系.md",
     "知识库/2026-04-27_analysis_超级周流动性与板块轮动.md",
-    "知识库/2026-04-26_analysis_光电子半导体短周期调整研判.md",
     "知识库/2026-04-25_profile_个人心理画像.md",
     "知识库/2026-04-24_analysis_AI时代的平台竞争格局.md",
     "知识库/2026-04-24_analysis_伊朗以色列中东格局.md",
@@ -210,7 +211,6 @@
     "知识库/2026-04-25_framework_成交量风险评估.md",
     "知识库/2026-04-24_analysis_中国AI公司战略困局.md",
     "知识库/2026-04-24_model_黄哥投资决策体系.md",
-    "知识库/index.md",
     "CLAUDE.md",
     "原始资料/博客/dontbesilent"
   ]
