@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "目录.md",
+                "file": "知识库/_processed.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "目录"
+              "title": "_processed"
             }
           }
         ]
@@ -95,7 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "目录.md",
+                "file": "知识库/_processed.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "目录 的反向链接列表"
+              "title": "_processed 的反向链接列表"
             }
           },
           {
@@ -170,7 +170,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,32 +186,36 @@
   },
   "active": "0db97c5ba74ff492",
   "lastOpenFiles": [
-    "CLAUDE.md",
-    "README.md",
-    "目录.md",
-    "知识库/index.md",
-    "知识库/2026-04-27_idea_研究公司基本面的问题框架.md",
+    "知识库/2026-04-27_framework_投研三层决策框架应用指南.md",
+    "知识库/2026-04-27_framework_dontbesilent问题诊断体系.md",
+    "知识库/_processed.md",
+    "知识库/_processed.md.tmp.74268.1777301942628",
     "知识库/2026-04-24_analysis_阿根廷米莱改革.md",
-    "原始资料/博客/黄哥/260404 港股定价权.md",
-    "知识库/2026-04-24_model_黄哥投资决策体系.md",
-    "知识库/2026-04-24_analysis_伊朗以色列中东格局.md",
-    "知识库/2026-04-24_analysis_麦当劳与蜜雪冰城对比.md",
-    "知识库/2026-04-24_analysis_好生意的标准框架.md",
-    "知识库/2026-04-24_analysis_港股内地化与定价权.md",
-    "知识库/2026-04-26_analysis_光电子半导体短周期调整研判.md",
-    "原始资料/博客/dontbesilent/dontbesilent 问题消解 100 例.md",
+    "知识库/2026-04-27_idea_研究公司基本面的问题框架.md",
+    "原始资料/博客/黄哥/20260427-投研方法论-芒格与李录.pdf",
     "原始资料/博客/浪淘沙投研说/洗盘还是见顶？.md",
+    "原始资料/博客/dontbesilent/dontbesilent 问题消解 100 例.md",
     "原始资料/博客/浪淘沙投研说/超级周来了！.md",
+    "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
+    "原始资料/博客/黄哥/标的.png",
+    "原始资料/博客/黄哥/260425直播.pdf",
+    "原始资料/博客/黄哥/260423 现在还有什么好生意.md",
+    "原始资料/博客/黄哥/260422 AI时代下，Adobe和美图秀秀的发展.md",
+    "原始资料/博客/黄哥/260421 苹果公司新思考.md",
+    "原始资料/博客/黄哥/260420 中国AI公司 摩尔线程，智谱.md",
+    "原始资料/博客/黄哥/260417 特斯拉.md",
+    "原始资料/博客/黄哥/260416 养老行业.md",
+    "原始资料/博客/黄哥/260416  微软公司.md",
+    "原始资料/博客/黄哥/260415 婚姻.md",
+    "原始资料/博客/黄哥/260414 苹果公司.md",
+    "原始资料/博客/黄哥/260412 阿根廷自米莱后变化.md",
+    "原始资料/博客/黄哥/260409 中国房地产分析.md",
     "原始资料/博客/黄哥/260409 地级市岚图是否值得.md",
     "原始资料/博客/黄哥/260408 生猪产业.md",
     "原始资料/博客/黄哥/260404 蜜雪冰城与麦当劳分析.md",
+    "原始资料/博客/黄哥/260404 港股定价权.md",
     "原始资料/博客/黄哥/260403直播.md",
     "原始资料/博客/黄哥/260403 伊朗-以色列-石油君主国.md",
-    "原始资料/博客/黄哥/260402 茅台分析.md",
-    "原始资料/博客/dontbesilent/dontbesilent.md",
-    "知识库/2026-04-27_framework_dontbesilent问题诊断体系.md",
-    "知识库/2026-04-27_analysis_超级周流动性与板块轮动.md",
-    "知识库/2026-04-25_profile_个人心理画像.md",
     "原始资料/博客/dontbesilent"
   ]
 }
