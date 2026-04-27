@@ -12,3 +12,4 @@ echo [3/3] Pushing to Github...
 git push origin main
 
 echo Sync completed at %time%
+pause
