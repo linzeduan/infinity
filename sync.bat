@@ -1,4 +1,5 @@
 @echo off
+chcp 65001 >nul
 cd /d "d:\Abandon\infinity"
 
 echo [1/3] 拉取云端最新进度...
