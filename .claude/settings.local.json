@@ -18,7 +18,15 @@
       "Bash(git push *)",
       "Bash(git pull *)",
       "Bash(git commit *)",
-      "Bash(awk '{print $2}')"
+      "Bash(awk '{print $2}')",
+      "Bash(git -C d:/Abandon/infinity log --oneline -20)",
+      "WebFetch(domain:youzhiyouxing.cn)",
+      "Bash(curl -sL --max-time 15 -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://youzhiyouxing.cn/sbbi2025/preface/\")",
+      "Bash(python -c \"import pdfkit\")",
+      "Bash(python -c \"import weasyprint\")",
+      "Bash(npx --yes playwright --version)",
+      "Bash(python -c \"from reportlab.lib.pagesizes import A4; print\\('reportlab ok'\\)\")",
+      "Bash(pip list *)"
     ]
   }
 }
