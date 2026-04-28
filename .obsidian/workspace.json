@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "知识库/_processed.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "_processed"
             }
           }
         ]
@@ -186,20 +186,21 @@
   },
   "active": "0db97c5ba74ff492",
   "lastOpenFiles": [
+    "原始资料/博客/黄哥/260428化债.md",
+    "原始资料/博客/黄哥/260427-投研方法论-芒格与李录.pdf",
+    "README.md",
     "知识库/2026-04-27_framework_投研三层决策框架应用指南.md",
     "知识库/2026-04-27_framework_dontbesilent问题诊断体系.md",
     "知识库/2026-04-28_analysis_拥挤度临界与军工加仓信号.md",
     "原始资料/博客/浪淘沙投研说/加一份！.md",
     "原始资料/博客/浪淘沙投研说/洗盘还是见顶？.md",
     "CLAUDE.md",
-    "README.md",
     "目录.md",
     "2026-04-27_idea_研究公司基本面的问题框架.md",
     "知识库/_processed.md",
     "知识库/_processed.md.tmp.74268.1777301942628",
     "知识库/2026-04-24_analysis_阿根廷米莱改革.md",
     "知识库/2026-04-27_idea_研究公司基本面的问题框架.md",
-    "原始资料/博客/黄哥/20260427-投研方法论-芒格与李录.pdf",
     "原始资料/博客/dontbesilent/dontbesilent 问题消解 100 例.md",
     "原始资料/博客/浪淘沙投研说/超级周来了！.md",
     "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
@@ -215,8 +216,6 @@
     "原始资料/博客/黄哥/260415 婚姻.md",
     "原始资料/博客/黄哥/260414 苹果公司.md",
     "原始资料/博客/黄哥/260412 阿根廷自米莱后变化.md",
-    "原始资料/博客/黄哥/260409 中国房地产分析.md",
-    "原始资料/博客/黄哥/260409 地级市岚图是否值得.md",
     "原始资料/博客/dontbesilent"
   ]
 }
