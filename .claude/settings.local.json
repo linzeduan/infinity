@@ -26,7 +26,8 @@
       "Bash(python -c \"import weasyprint\")",
       "Bash(npx --yes playwright --version)",
       "Bash(python -c \"from reportlab.lib.pagesizes import A4; print\\('reportlab ok'\\)\")",
-      "Bash(pip list *)"
+      "Bash(pip list *)",
+      "Bash(python -c ' *)"
     ]
   }
 }
