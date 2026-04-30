@@ -27,7 +27,10 @@
       "Bash(npx --yes playwright --version)",
       "Bash(python -c \"from reportlab.lib.pagesizes import A4; print\\('reportlab ok'\\)\")",
       "Bash(pip list *)",
-      "Bash(python -c ' *)"
+      "Bash(python -c ' *)",
+      "WebFetch(domain:github.com)",
+      "Bash(gh api *)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/KKKKhazix/khazix-skills/main/neat-freak/SKILL.md\")"
     ]
   }
 }
