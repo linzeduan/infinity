@@ -8,18 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "0db97c5ba74ff492",
+            "id": "cd9c11a5dbbc8934",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "知识库/目录.md",
+                "file": "知识库/黄哥/2026-04-24_analysis_特斯拉的五阶段演进.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "目录"
+              "title": "2026-04-24_analysis_特斯拉的五阶段演进"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 562.5
+    "width": 397.5
   },
   "right": {
     "id": "89b9e406a053a8ed",
@@ -155,13 +155,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "知识库/目录.md",
+                "file": "知识库/黄哥/2026-04-28_analysis_地方化债的五条路径与真实代价.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "目录 的大纲"
+              "title": "2026-04-28_analysis_地方化债的五条路径与真实代价 的大纲"
             }
           }
         ],
@@ -169,7 +169,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -182,43 +183,44 @@
       "bases:新建数据库": false
     }
   },
-  "active": "0db97c5ba74ff492",
+  "active": "cd9c11a5dbbc8934",
   "lastOpenFiles": [
+    "知识库/黄哥/2026-04-24_analysis_中国AI公司战略困局.md",
+    "知识库/黄哥/2026-04-24_analysis_AI时代的平台竞争格局.md",
+    "知识库/黄哥/2026-04-24_model_黄哥投资决策体系.md",
+    "知识库/黄哥/2026-04-25_analysis_苹果终端AI定价权体系.md",
+    "知识库/黄哥/2026-04-27_framework_投研三层决策框架应用指南.md",
+    "知识库/黄哥/2026-04-30_analysis_地方债化债机制与路径.md",
+    "知识库/黄哥/2026-04-30_analysis_区域贫富分化的制度根源.md",
+    "知识库/黄哥/2026-04-24_analysis_中国房地产系统性危机.md",
+    "知识库/黄哥/2026-04-24_analysis_伊朗以色列中东格局.md",
+    "知识库/黄哥/2026-04-24_analysis_微软AI时代战略.md",
+    "知识库/黄哥/2026-04-24_analysis_生猪养殖周期与淘汰赛.md",
+    "原始资料/博客/黄哥/260429  为什么有的地方穷，有的地方富.md",
+    "原始资料/博客/黄哥/260428化债.md",
+    "知识库/黄哥/2026-04-29_analysis_地方贫富差异的制度根源.md",
+    "知识库/黄哥/2026-04-28_analysis_地方化债的五条路径与真实代价.md",
+    "知识库/框架/2026-04-25_framework_成交量风险评估.md",
+    "知识库/框架/2026-04-25_framework_物理瓶颈论.md",
+    "知识库/框架/2026-04-30_framework_区域贫富差异决策原则.md",
+    "原始资料/博客/黄哥/260425直播.pdf",
+    "原始资料/博客/黄哥/260427-投研方法论-芒格与李录.pdf",
+    "原始资料/博客/黄哥/260402 茅台分析.md",
+    "知识库/学习/2026-04-29_learning_DeepSeek清华系列教程全解.md",
+    "知识库/目录.md",
     "知识库/2026-04-25_profile_个人心理画像.md",
     "知识库/_processed.md",
     "CLAUDE.md",
     "README.md",
     "未命名 1.base",
     "未命名.base",
-    "知识库/目录.md",
     "知识库/目录.md.tmp.24972.1777461250721",
-    "知识库/学习/2026-04-29_learning_DeepSeek清华系列教程全解.md",
     "知识库/学习",
     "目录.md",
-    "知识库/2026-04-29_learning_DeepSeek清华系列教程全解.md",
-    "知识库/2026-04-24_analysis_好生意的标准框架.md",
-    "知识库/2026-04-24_analysis_阿根廷米莱改革.md",
-    "知识库/框架/2026-04-25_framework_成交量风险评估.md",
-    "知识库/框架/2026-04-25_framework_物理瓶颈论.md",
-    "知识库/dontbesilent/2026-04-27_framework_dontbesilent问题诊断体系.md",
-    "知识库/浪淘沙投研说/2026-04-29_analysis_AI信任危机与机构资金撤退.md",
-    "知识库/浪淘沙投研说/2026-04-28_analysis_拥挤度临界与军工加仓信号.md",
-    "知识库/浪淘沙投研说/2026-04-27_analysis_超级周流动性与板块轮动.md",
-    "知识库/浪淘沙投研说/2026-04-26_analysis_光电子半导体短周期调整研判.md",
-    "知识库/黄哥/2026-04-24_analysis_岚图投资财务分析.md",
-    "知识库/黄哥/2026-04-24_analysis_生猪养殖周期与淘汰赛.md",
-    "知识库/黄哥/2026-04-24_analysis_港股内地化与定价权.md",
-    "知识库/黄哥/2026-04-24_analysis_麦当劳与蜜雪冰城对比.md",
-    "知识库/黄哥/2026-04-24_analysis_全球流动性危机预警.md",
-    "知识库/黄哥/2026-04-24_analysis_伊朗以色列中东格局.md",
-    "知识库/黄哥/2026-04-24_analysis_茅台的政治溢价机制.md",
     "知识库/框架",
     "知识库/dontbesilent",
     "知识库/浪淘沙投研说",
     "知识库/黄哥",
-    "知识库/2026-04-28_analysis_拥挤度临界与军工加仓信号.md",
-    "原始资料/学习/AI/清华大学第二弹-DeepSeek如何赋能职场应用：从提示语技巧到多场景应用.pdf",
-    "原始资料/学习/AI/清华大学第三弹-普通人如何抓住DeepSeek红利.pdf",
     "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
     "原始资料/博客/黄哥/标的.png"
   ]
