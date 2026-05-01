@@ -30,7 +30,13 @@
       "Bash(python -c ' *)",
       "WebFetch(domain:github.com)",
       "Bash(gh api *)",
-      "Bash(curl -sL \"https://raw.githubusercontent.com/KKKKhazix/khazix-skills/main/neat-freak/SKILL.md\")"
+      "Bash(curl -sL \"https://raw.githubusercontent.com/KKKKhazix/khazix-skills/main/neat-freak/SKILL.md\")",
+      "Bash(pdftotext \"d:/Abandon/infinity/原始资料/博客/黄哥/260430AI时代下，谁更像是个大地主.pdf\" -)",
+      "Bash(pdftotext \"d:/Abandon/infinity/原始资料/博客/黄哥/260430泡泡玛特.pdf\" -)",
+      "Bash(mineru \"d:/Abandon/infinity/原始资料/博客/黄哥/260430AI时代下，谁更像是个大地主.pdf\" -o /tmp/pdf_output1.md)",
+      "Bash(python3 -c \"import pdfplumber; pdf = pdfplumber.open\\('d:/Abandon/infinity/原始资料/博客/黄哥/260430AI时代下，谁更像是个大地主.pdf'\\); print\\('\\\\n'.join\\([page.extract_text\\(\\) for page in pdf.pages[:3]]\\)\\)\")",
+      "Bash(mineru-open-api --help)",
+      "Bash(python3)"
     ]
   }
 }
