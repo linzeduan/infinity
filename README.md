@@ -9,3 +9,4 @@ API配置claude-haiku-4-5-20251001
 
 一些好用的指令：  
 /insights   
+111
