@@ -36,7 +36,17 @@
       "Bash(mineru \"d:/Abandon/infinity/原始资料/博客/黄哥/260430AI时代下，谁更像是个大地主.pdf\" -o /tmp/pdf_output1.md)",
       "Bash(python3 -c \"import pdfplumber; pdf = pdfplumber.open\\('d:/Abandon/infinity/原始资料/博客/黄哥/260430AI时代下，谁更像是个大地主.pdf'\\); print\\('\\\\n'.join\\([page.extract_text\\(\\) for page in pdf.pages[:3]]\\)\\)\")",
       "Bash(mineru-open-api --help)",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Bash(python3 -m pip install Pillow -q)",
+      "Bash(convert \"d:/Abandon/infinity/原始资料/博客/黄哥/260507机器人七层投资蛋糕.png\" -depth 8 txt:-)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"print\\('test'\\)\")",
+      "Bash(identify -verbose \"d:/Abandon/infinity/原始资料/博客/黄哥/260507机器人七层投资蛋糕.png\")",
+      "Bash(powershell -Command ' *)",
+      "Bash(wsl which *)",
+      "Bash(choco install *)",
+      "Bash(pip install *)",
+      "Bash(c:/Python314/python.exe)"
     ]
   }
 }
