@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "CLAUDE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "CLAUDE"
             }
           }
         ]
@@ -185,6 +185,8 @@
   },
   "active": "618ddc331ce47f4e",
   "lastOpenFiles": [
+    "README.md",
+    "知识库/黄哥/2026-05-12_analysis_系统激励结构与投机者生产机制.md",
     "知识库/黄哥/2026-05-11_framework_终端现金流宏观监测体系.md",
     "知识库/黄哥/2026-05-11_analysis_丰田汽车的精益困局与转型博弈.md",
     "知识库/黄哥/2026-05-07_analysis_机器人产业链投资时机与筛选逻辑.md",
@@ -212,8 +214,6 @@
     "知识库/目录.md.tmp.78104.bc2bab21e010",
     "知识库/黄哥/2026-05-11_template_终端现金流周报模板.md.tmp.78104.aee183c1033a",
     "原始资料/博客/黄哥/260509丰田分析.pdf",
-    "原始资料/博客/黄哥/260511终端现金流监测器.md",
-    "原始资料/博客/浪淘沙投研说/谁先崩？.md",
     "原始资料/博客/黄哥/丰田分析5.9(1).pdf",
     "知识库/随笔",
     "原始资料/博客/黄哥/260507机器人七层投资蛋糕人体模型图.png",
