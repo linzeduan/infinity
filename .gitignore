@@ -30,7 +30,6 @@ venv/
 # 不同步的个人环境
 .env.local
 .env.*.local
-. o b s i d i a n / w o r k s p a c e . j s o n 
-
+.obsidian/workspace.json 
  
  
