@@ -1,0 +1,229 @@
+{
+  "main": {
+    "id": "0b9f75d88b20cb67",
+    "type": "split",
+    "children": [
+      {
+        "id": "3bb2f34763ccbc4f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "618ddc331ce47f4e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "原始资料/博客/数字生命卡兹克/2026-05-20T163918+0800上周做了场内部分享，关于我做AI这三年来总结的内容创作方法论。.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "2026-05-20T163918+0800上周做了场内部分享，关于我做AI这三年来总结的内容创作方法论。"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9613987e73592b38",
+    "type": "split",
+    "children": [
+      {
+        "id": "624877054368fd06",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a4c44fdd6516dc7a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "3c762353070163ac",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "af699560113f38f1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 397.5
+  },
+  "right": {
+    "id": "89b9e406a053a8ed",
+    "type": "split",
+    "children": [
+      {
+        "id": "a3f24b3f21c485b8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bcfbf84551d738d7",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "94969114ee245c7c",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "1c1101988c3e81d0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "afbd36c3c5212ea5",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "b43dd633d9dca095",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "知识库/黄哥/2026-04-28_analysis_地方化债的五条路径与真实代价.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "2026-04-28_analysis_地方化债的五条路径与真实代价 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "a4c44fdd6516dc7a",
+  "lastOpenFiles": [
+    "知识库/目录.md.tmp.11004.c240eb0d8b3a",
+    "知识库/_processed.md.tmp.11004.c788403305ad",
+    "知识库/_processed.md.tmp.11004.35a66828f8c7",
+    "知识库/_processed.md.tmp.11004.89af7feaaa9f",
+    "知识库/数字生命卡兹克/2026-05-20_learning_AI内容创作方法论.md",
+    "知识库/数字生命卡兹克",
+    "原始资料/博客/数字生命卡兹克",
+    "原始资料/博客/浪淘沙投研说/2026-05-19T145629+0800这个板块，注意了！.md",
+    "原始资料/博客/数字生命卡兹克/2026-05-20T163918+0800上周做了场内部分享，关于我做AI这三年来总结的内容创作方法论。.md",
+    "知识库/浪淘沙投研说/2026-05-20_analysis_算力网催化与Token产业链布局逻辑.md",
+    "知识库/_processed.md",
+    "知识库/目录.md",
+    "知识库/横纵分析法/富国中证军工龙头ETF512710_横纵分析报告.md",
+    "开始工作.exe",
+    "123.exe",
+    "RCXF952.tmp",
+    "RCXF896.tmp",
+    "RCXF7CA.tmp",
+    "原始资料/博客/浪淘沙投研说/2026-05-20T141039+0800可以继续布局！.md",
+    "原始资料/Clippings/可以继续布局！.md",
+    "原始资料/博客/浪淘沙投研说/2026-05-18T161901+0800还需谨慎！.md",
+    "知识库/横纵分析法/电网设备ETF易方达560390_横纵分析报告.md",
+    "知识库/浪淘沙投研说/2026-05-19_analysis_英伟达财报压力测试与AI板块追高风险警示.md",
+    "README.md",
+    "原始资料/博客/浪淘沙投研说/超级周来了！.md",
+    "知识库/浪淘沙投研说/2026-05-15_analysis_最后一杀信号与科技线高位风控.md",
+    "原始资料/Clippings/2026-05-17T085101+0800哔哩哔哩 (゜-゜)つロ 干杯~-bilibili.md",
+    "知识库/黄哥/2026-05-15_analysis_美国消费L型分化与三阶段危机路径.md",
+    "原始资料/博客/浪淘沙投研说/继续跌，是最后一杀吗？.md",
+    "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
+    "原始资料/博客/黄哥/260513关于终端消费现金流的分析和推演.md",
+    "知识库/浪淘沙投研说/2026-05-14_analysis_融资过热信号与高位回调的持仓纪律.md",
+    "原始资料/博客/浪淘沙投研说/有点怕.md",
+    "知识库/浪淘沙投研说/2026-05-14_analysis_美国通胀与全球流动性切换.md",
+    "知识库/浪淘沙投研说/2026-05-12_analysis_事件落地前的持仓纪律与板块布局节奏.md",
+    "知识库/黄哥/2026-05-14_analysis_终端现金流断层与全球L型分化.md",
+    "知识库/黄哥/2026-05-11_framework_终端现金流宏观监测体系.md",
+    "原始资料/博客/黄哥/260507机器人七层投资蛋糕人体模型图.png",
+    "原始资料/博客/黄哥/260507机器人七层投资蛋糕.png",
+    "原始资料/博客/黄哥/标的.png"
+  ]
+}
