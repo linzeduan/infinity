@@ -46,7 +46,8 @@
       "Bash(wsl which *)",
       "Bash(choco install *)",
       "Bash(pip install *)",
-      "Bash(c:/Python314/python.exe)"
+      "Bash(c:/Python314/python.exe)",
+      "Bash(Select-Object FullName)"
     ]
   }
 }
