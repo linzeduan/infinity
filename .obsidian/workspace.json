@@ -11,12 +11,15 @@
             "id": "25e61c688af9fbbd",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "原始资料/博客/黄哥/260603Rubin架构下的投资机会（二）.pdf"
+                "file": "知识库/JACK/JACK_365天思想实验汇总.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-file-text",
-              "title": "260603Rubin架构下的投资机会（二）"
+              "icon": "lucide-file",
+              "title": "JACK_365天思想实验汇总"
             }
           }
         ]
@@ -181,20 +184,22 @@
       "bases:新建数据库": false
     }
   },
-  "active": "ef5a1abdb5bfac5c",
+  "active": "25e61c688af9fbbd",
   "lastOpenFiles": [
-    "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
+    "知识库/_processed.md",
+    "知识库/黄哥/2026-06-03_analysis_Rubin架构下的AI新机会与产业链三层布局.md",
     "原始资料/博客/黄哥/260603Rubin架构下的投资机会（二）.pdf",
+    "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
+    "原始资料/博客/JACK/2026-06-04.md",
+    "原始资料/博客/JACK/2026-06-03.md",
     "原始资料/博客/黄哥/260531社保.md",
     "原始资料/博客/浪淘沙投研说/2026-06-03T145107+0800跳水！.md",
     "README.md",
-    "原始资料/博客/JACK/2026-06-03.md",
     "知识库/目录.md.tmp.10732.32596c0060c2",
     "知识库/目录.md.tmp.10732.7be91a583338",
     "知识库/_processed.md.tmp.10732.a03a2730a5d7",
     "知识库/_processed.md.tmp.10732.a3ae7f45653d",
     "知识库/_processed.md.tmp.10732.60e0971299d4",
-    "知识库/黄哥/2026-06-03_analysis_Rubin架构下的AI新机会与产业链三层布局.md",
     "知识库/黄哥/2026-06-03_analysis_Rubin架构下的AI新机会与产业链三层布局.md.tmp.10732.19584a4894d7",
     "原始资料/博客/黄哥/260602Rubin架构下的新机会（一）(2).pdf",
     "原始资料/博客/黄哥/260601日本标的.md",
@@ -218,7 +223,6 @@
     "原始资料/博客/JACK/2026-05-30.md",
     "原始资料/博客/JACK/2026-05-29.md",
     "知识库/目录.md",
-    "知识库/_processed.md",
     "原始资料/博客/黄哥/标的.png",
     "原始资料/博客/黄哥/260528直播分析标的.png",
     "原始资料/博客/黄哥/260527用一场篮球赛，看懂金融市场的游戏规则.pdf",
