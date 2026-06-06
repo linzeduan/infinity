@@ -11,18 +11,16 @@
             "id": "25e61c688af9fbbd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "原始资料/博客/黄哥/260605封装技术从Cowos到Copos，从技术到投资机会（上）.pdf"
               },
-              "icon": "lucide-file",
-              "title": "README"
+              "icon": "lucide-file-text",
+              "title": "260605封装技术从Cowos到Copos，从技术到投资机会（上）"
             }
           }
-        ]
+        ],
+        "stacked": true
       }
     ],
     "direction": "vertical"
@@ -42,7 +40,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -184,8 +182,12 @@
       "bases:新建数据库": false
     }
   },
-  "active": "25e61c688af9fbbd",
+  "active": "ef5a1abdb5bfac5c",
   "lastOpenFiles": [
+    "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
+    "知识库/黄哥/2026-06-05_analysis_高成本世界的效率军备竞赛与三情景研判.md",
+    "README.md",
+    "原始资料/博客/黄哥/260605封装技术从Cowos到Copos，从技术到投资机会（上）.pdf",
     "原始资料/博客/浪淘沙投研说/2026-05-25T142702+0800大事多多！！！.md",
     "原始资料/博客/浪淘沙投研说/继续跌，是最后一杀吗？.md",
     "原始资料/博客/黄哥/260520：1997年亚洲金融危机始末.pdf",
@@ -200,18 +202,15 @@
     "知识库/_processed.md",
     "知识库/黄哥/2026-06-03_analysis_Rubin架构下的AI新机会与产业链三层布局.md",
     "原始资料/博客/黄哥/260603Rubin架构下的投资机会（二）.pdf",
-    "原始资料/博客/黄哥/美政策与黄金走势关联关系.png",
     "原始资料/博客/JACK/2026-06-04.md",
     "原始资料/博客/JACK/2026-06-03.md",
     "原始资料/博客/黄哥/260531社保.md",
     "原始资料/博客/浪淘沙投研说/2026-06-03T145107+0800跳水！.md",
-    "README.md",
     "知识库/目录.md.tmp.10732.32596c0060c2",
     "知识库/目录.md.tmp.10732.7be91a583338",
     "知识库/_processed.md.tmp.10732.a03a2730a5d7",
     "知识库/_processed.md.tmp.10732.a3ae7f45653d",
     "知识库/_processed.md.tmp.10732.60e0971299d4",
-    "知识库/黄哥/2026-06-03_analysis_Rubin架构下的AI新机会与产业链三层布局.md.tmp.10732.19584a4894d7",
     "原始资料/博客/黄哥/260601日本标的.md",
     "知识库/黄哥/2026-06-01_analysis_日本AI材料ETF双通道工具箱.md",
     "原始资料/博客/黄哥/83631f58cce2a6945b8528e0bc1d4919.jpg",
@@ -223,8 +222,6 @@
     "原始资料/博客/JACK/2026-06-01.md",
     "知识库/黄哥/2026-05-31_analysis_社保池子的三条逻辑线与制度性歧视.md",
     "原始资料/博客/JACK/2026-06-01 1.md",
-    "CLAUDE.md",
-    "原始资料/博客/黄哥/260404 港股定价权.md",
     "原始资料/博客/黄哥/标的.png",
     "原始资料/博客/黄哥/260528直播分析标的.png",
     "原始资料/博客/黄哥/260524永恒投资法的国产替代方案.png",
