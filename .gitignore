@@ -30,6 +30,9 @@ venv/
 # 不同步的个人环境
 .env.local
 .env.*.local
-.obsidian/workspace.json 
+.obsidian/workspace.json
+
+# Claude 机器本地配置（可能含密钥，禁止入库）
+.claude/settings.local.json
  
  

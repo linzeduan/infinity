@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit(知识库/**)",
+      "Write(知识库/**)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git pull:*)",
+      "Bash(git push origin main)",
+      "Bash(pdftotext:*)",
+      "Bash(mineru-open-api extract:*)",
+      "Bash(mineru-open-api flash-extract:*)",
+      "PowerShell(Get-ChildItem:*)",
+      "PowerShell(Get-Content:*)",
+      "PowerShell(Get-Item:*)",
+      "PowerShell(Select-String:*)",
+      "PowerShell(Measure-Object:*)"
+    ],
+    "ask": [
+      "Edit(CLAUDE.md)",
+      "Edit(.claude/**)",
+      "Write(.claude/**)",
+      "Edit(原始资料/**)",
+      "Write(原始资料/**)",
+      "Edit(*.bat)",
+      "Bash(git push --force:*)",
+      "Bash(git reset:*)"
+    ],
+    "deny": []
+  }
+}

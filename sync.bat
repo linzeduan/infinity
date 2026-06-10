@@ -1,26 +1,25 @@
 @echo off
-chcp 65001 >nul
 cd /d "d:\Abandon\infinity"
 
-echo [1/3] 拉取云端最新进度...
-git pull origin main
+echo [1/3] Saving local changes...
+git add .
+git commit -m "sync: %COMPUTERNAME% [%date% %time%]" || echo Nothing to commit, skipping
+
+echo [2/3] Pulling from remote...
+git pull --rebase origin main
 if %errorlevel% neq 0 (
-    echo ❌ 拉取失败，请检查网络或冲突！
+    echo Pull failed - possible conflicts. Resolve manually and retry.
     pause
     exit /b
 )
 
-echo [2/3] 保存本地改动...
-git add --force .
-git commit -m "sync: %COMPUTERNAME% [%date% %time%]" || echo 无新改动，跳过提交
-
-echo [3/3] 推送到云端...
+echo [3/3] Pushing to remote...
 git push origin main
 if %errorlevel% neq 0 (
-    echo ❌ 推送失败！
+    echo Push failed.
     pause
     exit /b
 )
 
-echo ✅ 同步完成 %time%
+echo Sync completed: %time%
 pause
