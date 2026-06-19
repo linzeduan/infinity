@@ -11,15 +11,12 @@
             "id": "25e61c688af9fbbd",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "知识库/浪淘沙投研说/2026-06-18_analysis_沃什鹰派首秀利空落地算力短缺二次确认.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "原始资料/博客/黄哥/260618沃什首秀的14个问答+解读.pdf"
               },
-              "icon": "lucide-file",
-              "title": "2026-06-18_analysis_沃什鹰派首秀利空落地算力短缺二次确认"
+              "icon": "lucide-file-text",
+              "title": "260618沃什首秀的14个问答+解读"
             }
           }
         ]
@@ -79,7 +76,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 425.5
+    "width": 425.5,
+    "collapsed": true
   },
   "right": {
     "id": "c00738659e8fe70b",
@@ -186,11 +184,11 @@
   },
   "active": "25e61c688af9fbbd",
   "lastOpenFiles": [
+    "知识库/浪淘沙投研说/2026-06-18_analysis_沃什鹰派首秀利空落地算力短缺二次确认.md",
     "知识库/黄哥/2026-06-18_analysis_认知框架向社会议题的跨域迁移.md",
     "原始资料/博客/黄哥/260618沃什首秀的14个问答+解读.pdf",
     "原始资料/博客/黄哥/260618关于🌈.pdf",
     "知识库/预测追踪表.md.tmp.14956.3b0e8f84bbe3",
-    "知识库/浪淘沙投研说/2026-06-18_analysis_沃什鹰派首秀利空落地算力短缺二次确认.md",
     "知识库/浪淘沙投研说/2026-06-17_analysis_外围重挫A股科技走独立行情.md",
     "260618temp.pdf",
     "原始资料/博客/浪淘沙投研说/2026-06-18T140054+0800疯涨！泡沫有多大？.md",
