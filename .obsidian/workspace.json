@@ -11,15 +11,12 @@
             "id": "7e83d3652accbedb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "原始资料/博客/黄哥/260403直播.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "原始资料/博客/黄哥/260627美光财报解读，HBM产业链拆解（有彩蛋） 20260626(1).pdf"
               },
-              "icon": "lucide-file",
-              "title": "260403直播"
+              "icon": "lucide-file-text",
+              "title": "260627美光财报解读，HBM产业链拆解（有彩蛋） 20260626(1)"
             }
           }
         ]
@@ -186,6 +183,7 @@
   },
   "active": "7e83d3652accbedb",
   "lastOpenFiles": [
+    "原始资料/博客/黄哥/260403直播.md",
     "原始资料/博客/黄哥/260627美光财报解读，HBM产业链拆解（有彩蛋） 20260626(1).pdf",
     "原始资料/博客/黄哥/260623人民币的价值到底由谁来锚定.pdf",
     "原始资料/博客/浪淘沙投研说/2026-06-26T163329+0800大跌是机会！.md",
