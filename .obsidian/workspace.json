@@ -11,12 +11,15 @@
             "id": "7e83d3652accbedb",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "原始资料/博客/黄哥/260702QDII.pdf"
+                "file": "知识库/黄哥/2026-07-02_analysis_ETF八图科普与方向纪律仓位放大器定位.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-file-text",
-              "title": "260702QDII"
+              "icon": "lucide-file",
+              "title": "2026-07-02_analysis_ETF八图科普与方向纪律仓位放大器定位"
             }
           }
         ]
@@ -183,9 +186,10 @@
   },
   "active": "7e83d3652accbedb",
   "lastOpenFiles": [
-    "原始资料/博客/黄哥/260701ETF.pdf",
+    "知识库/黄哥/2026-07-02_analysis_QDII九图科普与出海通道非资产定位.md",
     "知识库/黄哥/2026-07-02_analysis_ETF八图科普与方向纪律仓位放大器定位.md",
     "原始资料/博客/黄哥/260702QDII.pdf",
+    "原始资料/博客/黄哥/260701ETF.pdf",
     "原始资料/博客/黄哥/260630功率半导体（一）——AI为什么一定会走向800V？(1).pdf",
     "原始资料/博客/黄哥/260629关于AI下半场的软件推测.pdf",
     "原始资料/博客/黄哥/260421 苹果公司新思考.md",
