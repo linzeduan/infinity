@@ -1,0 +1,707 @@
+<meta charset="utf-8">
+<title>黄哥宏观指标看板</title>
+<style>
+  :root {
+    --ground: #f6f5f1;
+    --surface: #ffffff;
+    --surface-2: #eeede7;
+    --ink: #1e2530;
+    --muted: #5d6675;
+    --faint: #8b93a1;
+    --line: #e2e0d8;
+    --accent: #35558a;
+    --accent-soft: #e7ecf5;
+    --good: #2e7d4f;
+    --good-bg: #e3f1e9;
+    --warn: #9a6a0c;
+    --warn-bg: #f7ecd4;
+    --alert: #b3403a;
+    --alert-bg: #f9e5e3;
+    --empty: #9aa1ac;
+    --empty-bg: #ededea;
+    --mono: "Cascadia Mono", ui-monospace, "SF Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #14181f; --surface: #1c222c; --surface-2: #232b37;
+      --ink: #e8eaf0; --muted: #9aa3b2; --faint: #6d7686; --line: #2b3341;
+      --accent: #85a8dc; --accent-soft: #253248;
+      --good: #55b384; --good-bg: #1d3229;
+      --warn: #d9a03a; --warn-bg: #3a2f17;
+      --alert: #e0736a; --alert-bg: #3d2321;
+      --empty: #7b8290; --empty-bg: #262c36;
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #f6f5f1; --surface: #ffffff; --surface-2: #eeede7;
+    --ink: #1e2530; --muted: #5d6675; --faint: #8b93a1; --line: #e2e0d8;
+    --accent: #35558a; --accent-soft: #e7ecf5;
+    --good: #2e7d4f; --good-bg: #e3f1e9;
+    --warn: #9a6a0c; --warn-bg: #f7ecd4;
+    --alert: #b3403a; --alert-bg: #f9e5e3;
+    --empty: #9aa1ac; --empty-bg: #ededea;
+  }
+  :root[data-theme="dark"] {
+    --ground: #14181f; --surface: #1c222c; --surface-2: #232b37;
+    --ink: #e8eaf0; --muted: #9aa3b2; --faint: #6d7686; --line: #2b3341;
+    --accent: #85a8dc; --accent-soft: #253248;
+    --good: #55b384; --good-bg: #1d3229;
+    --warn: #d9a03a; --warn-bg: #3a2f17;
+    --alert: #e0736a; --alert-bg: #3d2321;
+    --empty: #7b8290; --empty-bg: #262c36;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground); color: var(--ink);
+    font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+    line-height: 1.55; margin: 0; padding: 0 16px 64px;
+  }
+  .wrap { max-width: 1060px; margin: 0 auto; }
+
+  header.top { padding: 28px 0 14px; border-bottom: 2px solid var(--ink); margin-bottom: 8px; }
+  .kicker { font-size: 12px; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+  h1 { font-family: "Source Han Serif SC", "Noto Serif SC", "SimSun", serif; font-size: clamp(24px, 4vw, 34px); margin: 0 0 4px; font-weight: 700; text-wrap: balance; }
+  .sub { color: var(--muted); font-size: 14px; max-width: 66ch; margin: 0; }
+  .gen-stamp { font-family: var(--mono); font-size: 12px; color: var(--faint); margin-top: 6px; }
+
+  .statusbar {
+    position: sticky; top: 0; z-index: 10; background: var(--ground);
+    padding: 10px 0; border-bottom: 1px solid var(--line);
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 22px;
+  }
+  .count-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 3px 10px; border-radius: 999px; font-variant-numeric: tabular-nums; }
+  .count-chip b { font-family: var(--mono); font-weight: 600; }
+  .c-alert { background: var(--alert-bg); color: var(--alert); }
+  .c-warn  { background: var(--warn-bg);  color: var(--warn); }
+  .c-good  { background: var(--good-bg);  color: var(--good); }
+  .c-empty { background: var(--empty-bg); color: var(--empty); }
+  .statusbar .spacer { flex: 1; }
+  .btn { font: inherit; font-size: 13px; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 6px; padding: 5px 12px; }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn:focus-visible, .seg button:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  /* ── 顶层：四问题卡 ── */
+  .banner {
+    border-radius: 10px; padding: 12px 18px; margin-bottom: 16px;
+    background: var(--alert-bg); color: var(--alert); font-weight: 600; font-size: 14px;
+  }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+  .qcard {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px 14px; position: relative; overflow: hidden;
+  }
+  .qcard::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: var(--empty); }
+  .qcard.st-good::before { background: var(--good); }
+  .qcard.st-mid::before  { background: var(--warn); }
+  .qcard.st-bad::before  { background: var(--alert); }
+  .q-title { font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+  .q-answer {
+    font-family: "Source Han Serif SC", "Noto Serif SC", "SimSun", serif;
+    font-size: 26px; font-weight: 700; line-height: 1.2;
+    display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  }
+  .st-good .q-answer { color: var(--good); }
+  .st-mid  .q-answer { color: var(--warn); }
+  .st-bad  .q-answer { color: var(--alert); }
+  .st-empty .q-answer { color: var(--empty); }
+  .conflict-badge {
+    font-family: "Source Han Sans SC", "Noto Sans SC", sans-serif;
+    font-size: 12px; font-weight: 600; padding: 2px 9px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent);
+  }
+  .q-reason { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  .q-votes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .vote-chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 12px; padding: 2px 9px; border-radius: 999px;
+    background: var(--surface-2); color: var(--muted);
+  }
+  .vote-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--empty); flex: none; }
+  .vote-chip.v-good .dot { background: var(--good); }
+  .vote-chip.v-warn .dot { background: var(--warn); }
+  .vote-chip.v-alert .dot { background: var(--alert); }
+
+  /* ── 联动矩阵 ── */
+  .matrix-panel {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 26px;
+    display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; align-items: center;
+  }
+  .matrix-title { grid-column: 1 / -1; font-size: 13px; color: var(--muted); }
+  .matrix-title strong { color: var(--ink); font-family: "Source Han Serif SC", "Noto Serif SC", serif; font-size: 15px; }
+  .matrix { display: grid; grid-template-columns: auto 1fr 1fr; gap: 4px; max-width: 480px; font-size: 12px; }
+  .matrix .axis { color: var(--faint); display: flex; align-items: center; justify-content: center; padding: 4px; text-align: center; }
+  .m-cell { border: 1px solid var(--line); border-radius: 7px; padding: 8px 10px; color: var(--muted); background: var(--surface-2); min-height: 52px; }
+  .m-cell b { display: block; color: var(--ink); font-size: 12.5px; }
+  .m-cell.active { border-width: 2px; }
+  .m-cell.active.tone-alert { background: var(--alert-bg); border-color: var(--alert); }
+  .m-cell.active.tone-alert b { color: var(--alert); }
+  .m-cell.active.tone-warn { background: var(--warn-bg); border-color: var(--warn); }
+  .m-cell.active.tone-warn b { color: var(--warn); }
+  .m-cell.active.tone-accent { background: var(--accent-soft); border-color: var(--accent); }
+  .m-cell.active.tone-accent b { color: var(--accent); }
+  .m-cell.active.tone-good { background: var(--good-bg); border-color: var(--good); }
+  .m-cell.active.tone-good b { color: var(--good); }
+  .m-cell.edge { border-style: dashed; }
+  .matrix-note { font-size: 12.5px; color: var(--muted); align-self: start; }
+
+  /* ── 底层：折叠明细 ── */
+  .detail-head { font-size: 13px; color: var(--faint); margin: 0 0 10px; letter-spacing: .08em; }
+  details.module { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 12px; overflow: hidden; }
+  details.module summary {
+    padding: 13px 18px; cursor: pointer; list-style: none;
+    display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline;
+  }
+  details.module summary::-webkit-details-marker { display: none; }
+  details.module summary::before { content: "▸"; color: var(--faint); margin-right: 2px; }
+  details.module[open] summary::before { content: "▾"; }
+  details.module[open] summary { border-bottom: 1px solid var(--line); }
+  .mod-title { font-family: "Source Han Serif SC", "Noto Serif SC", "SimSun", serif; font-size: 16px; margin: 0; font-weight: 700; }
+  .src-tag { font-size: 12px; color: var(--faint); }
+  .mod-counts { margin-left: auto; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .mod-desc { padding: 10px 18px 0; color: var(--muted); font-size: 13px; max-width: 74ch; }
+
+  .row { display: grid; gap: 8px 14px; align-items: center; padding: 12px 18px; border-top: 1px solid var(--line); }
+  .row:first-of-type { border-top: none; }
+  .row.auto { grid-template-columns: minmax(220px, 1.4fr) 150px 120px minmax(150px, 1fr); }
+  .row.manual { grid-template-columns: minmax(230px, 1.5fr) minmax(120px, .8fr) 176px minmax(130px, 1fr); }
+  .row.is-alert { box-shadow: inset 3px 0 0 var(--alert); }
+  .row.is-warn  { box-shadow: inset 3px 0 0 var(--warn); }
+  .row.is-good  { box-shadow: inset 3px 0 0 var(--good); }
+
+  .ind-name { font-weight: 600; font-size: 14.5px; }
+  .ind-name .voter-mark { font-size: 11px; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: 1px 5px; margin-left: 6px; vertical-align: 1px; }
+  .ind-name a { color: var(--accent); text-decoration: none; font-weight: 400; font-size: 12px; margin-left: 6px; white-space: nowrap; }
+  .ind-name a:hover { text-decoration: underline; }
+  .ind-rule { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .ind-rule strong { color: var(--ink); font-weight: 600; }
+
+  .auto-val { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .auto-val .v { font-size: 18px; font-weight: 600; }
+  .auto-val .u { font-size: 12px; color: var(--muted); margin-left: 2px; }
+  .auto-val .d { font-size: 11px; color: var(--faint); display: block; }
+  .auto-val .chg { font-size: 12px; display: block; color: var(--muted); }
+
+  .sparkbox svg { display: block; width: 110px; height: 30px; }
+  .sparkbox polyline { fill: none; stroke: var(--accent); stroke-width: 1.6; }
+  .sparkbox circle { fill: var(--accent); }
+
+  .status-cell { font-size: 12.5px; }
+  .status-pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-weight: 600; }
+  .p-good  { background: var(--good-bg);  color: var(--good); }
+  .p-warn  { background: var(--warn-bg);  color: var(--warn); }
+  .p-alert { background: var(--alert-bg); color: var(--alert); }
+  .p-neutral { background: var(--accent-soft); color: var(--accent); }
+  .status-reason { display: block; color: var(--muted); margin-top: 3px; }
+  .auto-extra { display: block; color: var(--faint); font-size: 11.5px; margin-top: 2px; }
+
+  .val input, .note input { width: 100%; font: inherit; font-size: 13px; background: var(--surface-2); color: var(--ink); border: 1px solid transparent; border-radius: 6px; padding: 6px 8px; }
+  .val input { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .val input:focus, .note input:focus { border-color: var(--accent); background: var(--surface); }
+  .val input::placeholder, .note input::placeholder { color: var(--faint); }
+
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; }
+  .seg button { font: inherit; font-size: 12px; cursor: pointer; background: transparent; color: var(--muted); border: none; border-left: 1px solid var(--line); padding: 5px 0; width: 44px; }
+  .seg button:first-child { border-left: none; }
+  .seg button[aria-pressed="true"].s-empty { background: var(--empty-bg); color: var(--empty); font-weight: 600; }
+  .seg button[aria-pressed="true"].s-good  { background: var(--good-bg);  color: var(--good);  font-weight: 600; }
+  .seg button[aria-pressed="true"].s-warn  { background: var(--warn-bg);  color: var(--warn);  font-weight: 600; }
+  .seg button[aria-pressed="true"].s-alert { background: var(--alert-bg); color: var(--alert); font-weight: 600; }
+
+  .stamp { grid-column: 1 / -1; font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .stamp:empty { display: none; }
+
+  .fetch-error { background: var(--warn-bg); color: var(--warn); border-radius: 8px; padding: 10px 14px; font-size: 13px; margin-bottom: 18px; }
+
+  footer.note { color: var(--faint); font-size: 12.5px; max-width: 74ch; border-top: 1px solid var(--line); padding-top: 14px; margin-top: 30px; }
+  footer.note p { margin: 4px 0; }
+
+  .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--ground); padding: 8px 18px; border-radius: 8px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .25s; }
+  .toast.show { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { .toast { transition: none; } }
+
+  @media (max-width: 720px) {
+    .cards { grid-template-columns: 1fr; }
+    .matrix-panel { grid-template-columns: 1fr; }
+    .row.auto, .row.manual { grid-template-columns: 1fr 1fr; }
+    .row.auto > div:first-child, .row.manual > div:first-child { grid-column: 1 / -1; }
+    .row.manual .note { grid-column: 1 / -1; }
+    .seg { width: 100%; }
+    .seg button { width: 25%; }
+    details.module summary, .mod-desc { padding-left: 14px; padding-right: 14px; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="kicker">HG MACRO MONITOR · AUTO</div>
+    <h1>黄哥宏观指标看板</h1>
+    <p class="sub">顶层四个问题（多数表决 + 硬阈值一票否决），联动矩阵按 260511 判读规则定位当前象限；明细指标折叠在下方，FRED 数据每日自动抓取。</p>
+    <div class="gen-stamp" id="gen-stamp"></div>
+  </header>
+
+  <div class="statusbar" id="statusbar">
+    <span class="count-chip c-alert">🔴 预警 <b id="n-alert">0</b></span>
+    <span class="count-chip c-warn">🟡 关注 <b id="n-warn">0</b></span>
+    <span class="count-chip c-good">🟢 正常 <b id="n-good">0</b></span>
+    <span class="count-chip c-empty">— 未填 <b id="n-empty">0</b></span>
+    <span class="spacer"></span>
+    <button class="btn" id="btn-export">复制本期汇总</button>
+  </div>
+
+  <div id="err-box"></div>
+  <div id="banner-box"></div>
+  <div class="cards" id="cards"></div>
+  <div class="matrix-panel" id="matrix-panel"></div>
+
+  <p class="detail-head">▼ 明细指标（点击展开；带「表决」标记的参与问题卡合成）</p>
+  <div id="board"></div>
+
+  <footer class="note">
+    <p>合成规则：每张卡由 2-4 个表决指标多数方向决定（严格多数才判扩张/收缩，平局=中间态）；同时出现正常票与预警票时标记「指标矛盾」——矛盾本身就是信号，不强行三选一。硬阈值一票否决：10Y≥5% → 联储卡直接「死角」；高收益利差≥5% → 信用卡直接「断裂」。</p>
+    <p>阈值与判读出处：260511 终端现金流监测器（含①×②联动矩阵）｜ 260518 三次危机结构同构 ｜ 260612+260706 资本容忍度与自融资红线 ｜ 260618 沃什三指标 ｜ 260611 黄金四对手盘。</p>
+    <p>⚠️ 仅为个人研究追踪工具，所有阈值与合成参数为对博主定性表述的量化翻译，不构成投资建议。</p>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const DATA = /*__DATA__*/null;
+
+const MODULES = [
+  {
+    id: "pay",
+    title: "一、支付端 — 钱花得更多还是更少？",
+    tag: "终端现金流模块 1",
+    desc: "推理链：消费量↑ + 可选品占比↑ + 信心↑ = 强消费；必需品占比上升 = 消费保守化。",
+    items: [
+      { type: "auto", key: "rsafs", name: "零售销售总额（实际增速判定）", rule: "名义同比 − CPI同比 = 实际零售；<strong>负增长 = 消费收缩</strong>", src: "FRED RSAFS", url: "https://fred.stlouisfed.org/series/RSAFS" },
+      { type: "auto", key: "umcsent", name: "密歇根消费者信心", rule: "预期先行指标（辅助证据，不表决）", src: "FRED UMCSENT", url: "https://fred.stlouisfed.org/series/UMCSENT" },
+      { type: "manual", id: "visa", name: "VISA 消费动量 SMI（总体/可选/必需品）", rule: "重点看<strong>必需品占比变化</strong>：占比↑ = 保守化", src: "Visa SMI", url: "https://usa.visa.com/partner-with-us/visa-consulting-analytics/spending-momentum-index.html" }
+    ]
+  },
+  {
+    id: "inv",
+    title: "二、物流与库存 — 货架上是活的还是死的？",
+    tag: "终端现金流模块 3",
+    desc: "",
+    items: [
+      { type: "auto", key: "retailirsa", name: "零售库存销售比", rule: "<strong>&lt;1.25 健康｜&gt;1.35 警惕积压</strong>", src: "FRED RETAILIRSA", url: "https://fred.stlouisfed.org/series/RETAILIRSA" },
+      { type: "auto", key: "amtmno", name: "制造业新订单", rule: "连续 2 个月上行 = 企业扩张意愿（辅助证据）", src: "FRED AMTMNO", url: "https://fred.stlouisfed.org/series/AMTMNO" },
+      { type: "manual", id: "fbx", name: "FBX 集装箱运价", rule: "贸易活跃度，需人工排除地缘扰动", src: "Freightos", url: "https://fbx.freightos.com/" }
+    ]
+  },
+  {
+    id: "heat",
+    title: "三、三级消费热力图 — 谁在花钱？",
+    tag: "终端现金流模块 4｜季更（随财报）",
+    desc: "不看绝对值，看三层之间的增速差。降级信号 = Costco 增速 > 爱马仕增速。",
+    items: [
+      { type: "manual", id: "lux", name: "高端：LVMH / 爱马仕 营收增速", rule: "富人消费意愿", src: "公司财报" },
+      { type: "manual", id: "mid", name: "中端：Nike 营收增速", rule: "中产消费意愿", src: "公司财报" },
+      { type: "manual", id: "mass", name: "性价比：Costco / 沃尔玛 营收增速", rule: "大众消费与降级承接方", src: "公司财报" },
+      { type: "manual", id: "downgrade", name: "降级信号差值（Costco − 爱马仕）", rule: "<strong>&gt;0 = 消费降级进行中</strong>", src: "自行计算" }
+    ]
+  },
+  {
+    id: "mood",
+    title: "四、社交情绪 — 人们在搜索什么？",
+    tag: "终端现金流模块 5｜先行指标",
+    desc: "往往比经济数据更早反应；注意季节性与事件性噪声，对照去年同期。",
+    items: [
+      { type: "manual", id: "usedcar", name: "Google Trends：used car", rule: "上升 = 消费压力", src: "Google Trends", url: "https://trends.google.com/trends/explore?geo=US&q=used%20car" },
+      { type: "manual", id: "discount", name: "Google Trends：discount", rule: "上升 = 价格敏感度提高", src: "Google Trends", url: "https://trends.google.com/trends/explore?geo=US&q=discount" },
+      { type: "manual", id: "savemoney", name: "Google Trends：save money", rule: "上升 = 储蓄意愿增强", src: "Google Trends", url: "https://trends.google.com/trends/explore?geo=US&q=save%20money" }
+    ]
+  },
+  {
+    id: "macro",
+    title: "五、宏观辅助层",
+    tag: "日更｜与微观模块互相校验",
+    desc: "若宏观方向与支付端 / 库存端矛盾，本身就是警惕信号。",
+    items: [
+      { type: "auto", key: "wti", name: "WTI 油价", rule: "油价↑ = 可支配收入↓；中东风险 = 输入性通胀导火索", src: "FRED DCOILWTICO", url: "https://fred.stlouisfed.org/series/DCOILWTICO" },
+      { type: "auto", key: "dollar", name: "广义美元指数（DXY 代理）", rule: "美元强 = 全球流动性收紧", src: "FRED DTWEXBGS", url: "https://fred.stlouisfed.org/series/DTWEXBGS" },
+      { type: "auto", key: "cpi_yoy", name: "CPI 同比", rule: "价格压力杠杆模块：与零售强弱组合判读", src: "FRED CPIAUCSL", url: "https://fred.stlouisfed.org/series/CPIAUCSL" },
+      { type: "manual", id: "pmi", name: "全球 PMI", rule: ">50 = 全球需求扩张", src: "S&P Global", url: "https://www.pmi.spglobal.com/" }
+    ]
+  },
+  {
+    id: "crisis",
+    title: "六、危机预警层 — 信用市场领先指标",
+    tag: "260518 四大领先指标 + 补充",
+    desc: "联动判读见顶部矩阵。",
+    items: [
+      { type: "auto", key: "hy_spread", name: "高收益债利差", rule: "<strong>&gt;5% = 风险偏好收缩（一票否决）</strong>", src: "FRED BAMLH0A0HYM2", url: "https://fred.stlouisfed.org/series/BAMLH0A0HYM2" },
+      { type: "auto", key: "ccc_spread", name: "CCC 级债利差", rule: "拐点快速上升 = 最脆弱环节断裂", src: "FRED BAMLH0A3HYC", url: "https://fred.stlouisfed.org/series/BAMLH0A3HYC" },
+      { type: "auto", key: "biz_default", name: "商业贷款违约率（银行口径）", rule: "<strong>&gt;8% ≈ 历史峰值</strong>", src: "FRED DRBLACBS", url: "https://fred.stlouisfed.org/series/DRBLACBS" },
+      { type: "auto", key: "cc_default", name: "信用卡违约率（总体）", rule: "18-29 岁分层是最灵敏温度计", src: "FRED DRCCLACBS", url: "https://fred.stlouisfed.org/series/DRCCLACBS" },
+      { type: "manual", id: "sloos", name: "SLOOS 银行信贷标准", rule: "<strong>连续收紧 &gt;4 个季度</strong>", src: "美联储季度调查", url: "https://www.federalreserve.gov/data/sloos.htm" },
+      { type: "manual", id: "zombie", name: "僵尸企业（罗素2000 利息保障倍数<1 占比）", rule: "30–40% + 2026H2–2027 到期潮 = 定时炸弹", src: "券商研报/彭博" }
+    ]
+  },
+  {
+    id: "ai",
+    title: "七、AI 资本容忍度 — 四信号",
+    tag: "260612 三指标 + 260706 第四信号｜季更（随财报）",
+    desc: "黄哥预判拐点在 2026 Q3/Q4；第四信号（自融资）一旦出现，判断向「泡沫」一侧收敛。",
+    items: [
+      { type: "manual", id: "upstream", name: "① 上游订单能见度", rule: "NVDA / Dell / SMCI 指引增速放缓或下调 = 巨头已在收缩", src: "公司指引" },
+      { type: "manual", id: "selffin", name: "② 自融资比例（供应商融资）", rule: "算力换股权/担保扩大；<strong>被投 AI 云利用率下滑、坏账出现 = 红线</strong>", src: "新闻+财报附注" },
+      { type: "manual", id: "guidance", name: "③ 巨头 CapEx 指引措辞", rule: "「持续加大」→「优化节奏/提升利用率」= 拐点信号", src: "财报电话会" },
+      { type: "manual", id: "capexeff", name: "④ 单位 CapEx 产出效率", rule: "每 $1 资本开支带来的增量云/AI收入；持续下降 = 边际递减", src: "M7 财报" },
+      { type: "manual", id: "capexocf", name: "M7 CapEx vs 经营现金流（辅助）", rule: "CapEx > OCF = 军备竞赛态仍在", src: "M7 财报" },
+      { type: "manual", id: "gap", name: "下游现金流加速度 vs 资本开支流速（辅助）", rule: "时间差原则：加速度反超 = 兑现开始", src: "自行估算" }
+    ]
+  },
+  {
+    id: "warsh",
+    title: "八、沃什三指标 — 联储的腾挪空间",
+    tag: "260618 鹰派重塑框架 + 260518 不可能三角",
+    desc: "去前瞻指引后只能数据依赖，这三项就是政策方向的全部输入。",
+    items: [
+      { type: "auto", key: "dgs10", name: "10Y 美债收益率", rule: "<strong>5% = 风险资产死亡线（一票否决）</strong>", src: "FRED DGS10", url: "https://fred.stlouisfed.org/series/DGS10" },
+      { type: "auto", key: "core_pce", name: "核心 PCE 同比", rule: "是否重返 <strong>2% 轨道</strong>（全球承诺）", src: "FRED PCEPILFE", url: "https://fred.stlouisfed.org/series/PCEPILFE" },
+      { type: "auto", key: "payems", name: "非农新增就业", rule: "是否超预期降温", src: "FRED PAYEMS", url: "https://fred.stlouisfed.org/series/PAYEMS" },
+      { type: "auto", key: "unrate", name: "失业率（辅助）", rule: "较 12 个月低点抬升幅度（类 Sahm 规则）", src: "FRED UNRATE", url: "https://fred.stlouisfed.org/series/UNRATE" }
+    ]
+  },
+  {
+    id: "gold",
+    title: "九、黄金四对手盘",
+    tag: "260611 独立框架（不参与问题卡合成）",
+    desc: "黄金不用现金流折现，盯四个对手盘的相对强弱；长逻辑 = 主权信用走薄（百年级结构）。",
+    items: [
+      { type: "auto", key: "real_yield", name: "10Y 实际收益率（TIPS）", rule: "实际收益率↑ = 黄金机会成本↑", src: "FRED DFII10", url: "https://fred.stlouisfed.org/series/DFII10" },
+      { type: "auto", key: "breakeven", name: "通胀预期（10Y 盈亏平衡）", rule: "回落过快 = 通缩情景，黄金让位于现金", src: "FRED T10YIE", url: "https://fred.stlouisfed.org/series/T10YIE" },
+      { type: "auto", key: "sp500", name: "标普 500（机会成本）", rule: "股市强 = 资金弃金投股", src: "FRED SP500", url: "https://fred.stlouisfed.org/series/SP500" }
+    ]
+  }
+];
+
+/* ── 四问题卡配置 ── */
+const QUESTIONS = [
+  {
+    id: "q1", title: "① 消费端还撑得住吗？",
+    labels: { good: "扩张", mid: "分化", bad: "收缩" },
+    voters: [
+      { kind: "auto", key: "rsafs", short: "实际零售" },
+      { kind: "auto", key: "retailirsa", short: "库存销售比" },
+      { kind: "auto", key: "cc_default", short: "信用卡违约" }
+    ]
+  },
+  {
+    id: "q2", title: "② 信用链条哪里在断？",
+    labels: { good: "正常", mid: "承压", bad: "断裂" },
+    voters: [
+      { kind: "auto", key: "hy_spread", short: "HY利差" },
+      { kind: "auto", key: "ccc_spread", short: "CCC利差" },
+      { kind: "auto", key: "biz_default", short: "商贷违约" },
+      { kind: "manual", id: "sloos", short: "SLOOS" }
+    ],
+    veto: { kind: "auto", key: "hy_spread", reason: "高收益利差≥5%，一票否决" }
+  },
+  {
+    id: "q3", title: "③ AI CapEx 到拐点了吗？",
+    labels: { good: "容忍", mid: "警惕", bad: "拐点", empty: "待填（季报）" },
+    voters: [
+      { kind: "manual", id: "upstream", short: "上游订单" },
+      { kind: "manual", id: "selffin", short: "自融资" },
+      { kind: "manual", id: "guidance", short: "指引措辞" },
+      { kind: "manual", id: "capexeff", short: "CapEx效率" }
+    ]
+  },
+  {
+    id: "q4", title: "④ 联储被逼进三角了吗？",
+    labels: { good: "有空间", mid: "两难", bad: "死角" },
+    voters: [
+      { kind: "auto", key: "dgs10", short: "10Y" },
+      { kind: "auto", key: "core_pce", short: "核心PCE" },
+      { kind: "auto", key: "payems", short: "非农" }
+    ],
+    veto: { kind: "auto", key: "dgs10", reason: "10Y≥5% 死亡线，一票否决" }
+  }
+];
+
+const LS_KEY = "hg-dashboard-v1";
+const STATES = [
+  { k: "empty", label: "—",  cls: "s-empty" },
+  { k: "good",  label: "🟢", cls: "s-good" },
+  { k: "warn",  label: "🟡", cls: "s-warn" },
+  { k: "alert", label: "🔴", cls: "s-alert" }
+];
+const PILL = { good: ["p-good", "🟢 正常"], warn: ["p-warn", "🟡 关注"], alert: ["p-alert", "🔴 预警"], neutral: ["p-neutral", "· 观察"] };
+
+let store = {};
+try { store = JSON.parse(localStorage.getItem(LS_KEY) || "{}"); } catch (e) { store = {}; }
+function save() { localStorage.setItem(LS_KEY, JSON.stringify(store)); }
+function rec(id) { return store[id] || (store[id] = { v: "", s: "empty", n: "", t: 0 }); }
+function stampText(t) {
+  if (!t) return "";
+  const d = new Date(t);
+  return "更新于 " + d.getFullYear() + "/" + String(d.getMonth()+1).padStart(2,"0") + "/" + String(d.getDate()).padStart(2,"0");
+}
+function voterState(v) {
+  if (v.kind === "auto") {
+    const s = DATA && DATA.series[v.key];
+    return s && s.status !== "neutral" ? s.status : "empty";
+  }
+  return rec(v.id).s;
+}
+
+/* 合成：严格多数决 + 一票否决 + 矛盾标记 */
+function synthesize(q) {
+  const votes = q.voters.map(v => ({ short: v.short, s: voterState(v) }));
+  const n = { good: 0, warn: 0, alert: 0, empty: 0 };
+  votes.forEach(v => n[v.s]++);
+  const cast = votes.length - n.empty;
+  const conflict = n.good > 0 && n.alert > 0;
+  let state, why;
+  if (q.veto && voterState(q.veto) === "alert") {
+    state = "bad"; why = q.veto.reason;
+  } else if (cast === 0) {
+    state = "empty"; why = "表决指标均未填写";
+  } else if (n.alert > n.good && n.alert > n.warn) {
+    state = "bad"; why = `${cast}票中${n.alert}票预警占多数`;
+  } else if (n.good > n.alert && n.good > n.warn) {
+    state = "good"; why = `${cast}票中${n.good}票正常占多数`;
+  } else {
+    state = "mid"; why = (conflict ? "正常票与预警票并存：" : "无多数方向：") + `${n.good}正/${n.warn}关/${n.alert}警`;
+  }
+  if (n.empty > 0 && cast > 0) why += `（${n.empty}项未填）`;
+  return { state, why, votes, conflict, counts: n };
+}
+
+document.getElementById("gen-stamp").textContent = DATA ? "数据生成于 " + DATA.generated + "（数据截至日期见明细行）" : "静态模板（未注入数据）";
+if (DATA && DATA.errors && DATA.errors.length) {
+  document.getElementById("err-box").innerHTML =
+    `<div class="fetch-error">本次有 ${DATA.errors.length} 个序列抓取失败：${DATA.errors.map(e => e.split(":")[0]).join("、")}</div>`;
+}
+
+/* ── 渲染明细层 ── */
+const VOTER_KEYS = new Set();
+QUESTIONS.forEach(q => q.voters.forEach(v => VOTER_KEYS.add(v.kind === "auto" ? "a:" + v.key : "m:" + v.id)));
+
+const board = document.getElementById("board");
+MODULES.forEach(mod => {
+  const sec = document.createElement("details");
+  sec.className = "module";
+  let html = `<summary><span class="mod-title">${mod.title}</span><span class="src-tag">${mod.tag}</span><span class="mod-counts" id="mc-${mod.id}"></span></summary>`;
+  if (mod.desc) html += `<p class="mod-desc">${mod.desc}</p>`;
+  mod.items.forEach(it => {
+    const link = it.url ? ` <a href="${it.url}" target="_blank" rel="noopener">${it.src} ↗</a>` : ` <a>${it.src}</a>`;
+    const isVoter = VOTER_KEYS.has(it.type === "auto" ? "a:" + it.key : "m:" + it.id);
+    const mark = isVoter ? `<span class="voter-mark">表决</span>` : "";
+    if (it.type === "auto") {
+      const s = DATA && DATA.series[it.key];
+      if (s) {
+        const chg = s.value - s.prev;
+        const arrow = chg > 0 ? "↑" : (chg < 0 ? "↓" : "→");
+        const [pillCls, pillTxt] = PILL[s.status] || PILL.neutral;
+        html += `
+        <div class="row auto ${s.status !== "neutral" ? "is-" + s.status : ""}" id="arow-${it.key}">
+          <div>
+            <div class="ind-name">${it.name}${mark}${link}</div>
+            <div class="ind-rule">${it.rule}</div>
+          </div>
+          <div class="auto-val">
+            <span class="v">${fmt(s.value)}</span><span class="u">${s.unit}</span>
+            <span class="chg">${arrow} 前值 ${fmt(s.prev)}</span>
+            <span class="d">${s.date}</span>
+          </div>
+          <div class="sparkbox">${sparkSvg(s.spark)}</div>
+          <div class="status-cell">
+            <span class="status-pill ${pillCls}">${pillTxt}</span>
+            ${s.reason ? `<span class="status-reason">${s.reason}</span>` : ""}
+            ${s.extra ? `<span class="auto-extra">${s.extra}</span>` : ""}
+          </div>
+        </div>`;
+      } else {
+        html += `
+        <div class="row auto" id="arow-${it.key}">
+          <div>
+            <div class="ind-name">${it.name}${mark}${link}</div>
+            <div class="ind-rule">${it.rule}</div>
+          </div>
+          <div class="auto-val"><span class="d">本次抓取失败</span></div>
+          <div class="sparkbox"></div>
+          <div class="status-cell"><span class="status-pill p-neutral">· 无数据</span></div>
+        </div>`;
+      }
+    } else {
+      html += `
+      <div class="row manual" id="row-${it.id}">
+        <div>
+          <div class="ind-name">${it.name}${mark}${link}</div>
+          <div class="ind-rule">${it.rule}</div>
+        </div>
+        <div class="val"><input type="text" id="v-${it.id}" placeholder="当前值" aria-label="${it.name} 当前值"></div>
+        <div class="seg" role="group" aria-label="${it.name} 状态">
+          ${STATES.map(s => `<button type="button" class="${s.cls}" data-id="${it.id}" data-state="${s.k}" aria-pressed="false" title="${s.k==='empty'?'未填':s.k==='good'?'正常':s.k==='warn'?'关注':'预警'}">${s.label}</button>`).join("")}
+        </div>
+        <div class="note"><input type="text" id="n-${it.id}" placeholder="备注 / 判断" aria-label="${it.name} 备注"></div>
+        <div class="stamp" id="t-${it.id}"></div>
+      </div>`;
+    }
+  });
+  sec.innerHTML = html;
+  board.appendChild(sec);
+});
+
+function fmt(v) {
+  return Math.abs(v) >= 10000 ? v.toLocaleString("en-US") : String(v);
+}
+function sparkSvg(vals) {
+  if (!vals || vals.length < 2) return "";
+  const min = Math.min(...vals), max = Math.max(...vals), range = (max - min) || 1;
+  const W = 110, H = 30, P = 3;
+  const pts = vals.map((v, i) => {
+    const x = P + i * (W - 2 * P) / (vals.length - 1);
+    const y = H - P - (v - min) * (H - 2 * P) / range;
+    return x.toFixed(1) + "," + y.toFixed(1);
+  });
+  const last = pts[pts.length - 1].split(",");
+  return `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true"><polyline points="${pts.join(" ")}"/><circle cx="${last[0]}" cy="${last[1]}" r="2.4"/></svg>`;
+}
+
+/* ── 渲染顶层 ── */
+let lastSynth = {};
+function renderTop() {
+  const cardsEl = document.getElementById("cards");
+  lastSynth = {};
+  cardsEl.innerHTML = QUESTIONS.map(q => {
+    const r = synthesize(q);
+    lastSynth[q.id] = r;
+    const label = r.state === "empty" ? (q.labels.empty || "未填") : q.labels[r.state];
+    const chips = r.votes.map(v =>
+      `<span class="vote-chip ${v.s !== "empty" ? "v-" + v.s : ""}"><span class="dot"></span>${v.short}</span>`).join("");
+    return `
+    <div class="qcard st-${r.state}">
+      <div class="q-title">${q.title}</div>
+      <div class="q-answer">${label}${r.conflict ? '<span class="conflict-badge">⚡ 指标矛盾</span>' : ""}</div>
+      <div class="q-reason">${r.why}</div>
+      <div class="q-votes">${chips}</div>
+    </div>`;
+  }).join("");
+
+  // 联动矩阵（260511: 消费 × 信用）
+  const c = lastSynth.q1.state, k = lastSynth.q2.state;
+  const cBad = c === "bad", kBad = k === "bad";
+  const edge = c === "mid" || k === "mid";
+  const cells = [
+    { id: "gg", title: "常态", desc: "两端均正常", tone: "good",  active: !cBad && !kBad },
+    { id: "gb", title: "金融体系内部压力", desc: "信用恶化，尚未传导至实体", tone: "warn", active: !cBad && kBad },
+    { id: "bg", title: "结构性分化", desc: "消费恶化但信用未断（基准情景）", tone: "accent", active: cBad && !kBad },
+    { id: "bb", title: "系统性风险", desc: "两端同步恶化 = 高概率危机", tone: "alert", active: cBad && kBad }
+  ];
+  document.getElementById("matrix-panel").innerHTML = `
+    <div class="matrix-title"><strong>联动矩阵</strong>　消费（①）×信用（②），出处 260511${edge ? "　·　当前有问题卡处于中间态，定位为就近格（虚线）" : ""}</div>
+    <div class="matrix">
+      <span class="axis"></span><span class="axis">消费正常</span><span class="axis">消费恶化</span>
+      <span class="axis">信用<br>正常</span>
+      <div class="m-cell ${cells[0].active ? "active tone-good" : ""} ${cells[0].active && edge ? "edge" : ""}"><b>常态</b>两端均正常</div>
+      <div class="m-cell ${cells[2].active ? "active tone-accent" : ""} ${cells[2].active && edge ? "edge" : ""}"><b>结构性分化</b>消费恶化但信用未断（基准情景）</div>
+      <span class="axis">信用<br>恶化</span>
+      <div class="m-cell ${cells[1].active ? "active tone-warn" : ""} ${cells[1].active && edge ? "edge" : ""}"><b>金融内部压力</b>信用恶化，尚未传导至实体</div>
+      <div class="m-cell ${cells[3].active ? "active tone-alert" : ""} ${cells[3].active && edge ? "edge" : ""}"><b>系统性风险</b>两端同步恶化 = 高概率危机</div>
+    </div>
+    <div class="matrix-note">判读规则：终端现金流恶化 + 信用指标同步恶化 = 高概率系统性风险；只有一边恶化，分别是「金融内部压力」或「结构性分化」——后者正是黄哥的基准情景（类滞胀分化）。</div>`;
+
+  // 三重断裂触发横幅（③拐点 + ①收缩）
+  const bannerBox = document.getElementById("banner-box");
+  if (lastSynth.q3.state === "bad" && lastSynth.q1.state === "bad") {
+    bannerBox.innerHTML = `<div class="banner">⚠ 坏情景判据触发中：AI CapEx 拐点 + 消费收缩 同时成立（黄哥「三重断裂」情景的两个核心条件）</div>`;
+  } else {
+    bannerBox.innerHTML = "";
+  }
+}
+
+function refresh() {
+  const total = { alert: 0, warn: 0, good: 0, empty: 0 };
+  MODULES.forEach(mod => {
+    const mc = { alert: 0, warn: 0, good: 0 };
+    mod.items.forEach(it => {
+      if (it.type === "auto") {
+        const s = DATA && DATA.series[it.key];
+        if (s && s.status !== "neutral") { total[s.status]++; mc[s.status]++; }
+        return;
+      }
+      const r = rec(it.id);
+      total[r.s]++;
+      if (r.s !== "empty") mc[r.s]++;
+      const row = document.getElementById("row-" + it.id);
+      row.className = "row manual" + (r.s !== "empty" ? " is-" + r.s : "");
+      row.querySelectorAll(".seg button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.state === r.s)));
+      document.getElementById("t-" + it.id).textContent = stampText(r.t);
+    });
+    document.getElementById("mc-" + mod.id).textContent =
+      (mc.alert ? `🔴${mc.alert} ` : "") + (mc.warn ? `🟡${mc.warn} ` : "") + (mc.good ? `🟢${mc.good}` : "");
+  });
+  ["alert","warn","good","empty"].forEach(k => document.getElementById("n-" + k).textContent = total[k]);
+  renderTop();
+}
+
+MODULES.forEach(mod => mod.items.forEach(it => {
+  if (it.type !== "manual") return;
+  const r = rec(it.id);
+  document.getElementById("v-" + it.id).value = r.v;
+  document.getElementById("n-" + it.id).value = r.n;
+  document.getElementById("v-" + it.id).addEventListener("input", e => { const x = rec(it.id); x.v = e.target.value; x.t = Date.now(); save(); refresh(); });
+  document.getElementById("n-" + it.id).addEventListener("input", e => { const x = rec(it.id); x.n = e.target.value; x.t = Date.now(); save(); refresh(); });
+}));
+
+board.addEventListener("click", e => {
+  const b = e.target.closest(".seg button");
+  if (!b) return;
+  const x = rec(b.dataset.id);
+  x.s = b.dataset.state;
+  x.t = Date.now();
+  save(); refresh();
+});
+
+const toast = document.getElementById("toast");
+let toastTimer;
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+}
+
+document.getElementById("btn-export").addEventListener("click", () => {
+  const icon = { good: "🟢", warn: "🟡", alert: "🔴", neutral: "·" };
+  let md = `## 黄哥指标看板汇总（数据生成 ${DATA ? DATA.generated : "?"}）\n\n### 问题卡\n`;
+  QUESTIONS.forEach(q => {
+    const r = lastSynth[q.id];
+    if (!r) return;
+    const label = r.state === "empty" ? (q.labels.empty || "未填") : q.labels[r.state];
+    md += `- ${q.title} → **${label}**${r.conflict ? "（⚡指标矛盾）" : ""}：${r.why}\n`;
+  });
+  MODULES.forEach(mod => {
+    const lines = [];
+    mod.items.forEach(it => {
+      if (it.type === "auto") {
+        const s = DATA && DATA.series[it.key];
+        if (s) lines.push(`- ${icon[s.status]} ${it.name}：${fmt(s.value)}${s.unit}（${s.date}${s.reason ? "，" + s.reason : ""}）`);
+      } else {
+        const r = rec(it.id);
+        if (r.s !== "empty" || r.v || r.n) lines.push(`- ${icon[r.s] || "—"} ${it.name}${r.v ? "：" + r.v : ""}${r.n ? "（" + r.n + "）" : ""}`);
+      }
+    });
+    if (lines.length) md += `\n### ${mod.title.replace(/^[一二三四五六七八九十]+、/, "")}\n` + lines.join("\n") + "\n";
+  });
+  const done = () => showToast("已复制为 Markdown，可粘贴进周报/决策日志");
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(md).then(done, () => fallbackCopy(md, done));
+  } else fallbackCopy(md, done);
+});
+function fallbackCopy(text, done) {
+  const ta = document.createElement("textarea");
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); done(); } catch (e) { showToast("复制失败，请手动选择"); }
+  document.body.removeChild(ta);
+}
+
+refresh();
+</script>
