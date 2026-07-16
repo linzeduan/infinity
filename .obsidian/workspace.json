@@ -11,12 +11,15 @@
             "id": "7e83d3652accbedb",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "原始资料/博客/黄哥/260715一个人的工作，可能是这辈子最被低估的资产.pdf"
+                "file": "README.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-file-text",
-              "title": "260715一个人的工作，可能是这辈子最被低估的资产"
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ]
@@ -183,8 +186,8 @@
   },
   "active": "7e83d3652accbedb",
   "lastOpenFiles": [
-    "原始资料/博客/黄哥/260714资本市场里的消费者在买结论，而生产者在生产结论.pdf",
     "原始资料/博客/黄哥/260715一个人的工作，可能是这辈子最被低估的资产.pdf",
+    "原始资料/博客/黄哥/260714资本市场里的消费者在买结论，而生产者在生产结论.pdf",
     "知识库/_processed.md.tmp.25108.85319fce268a",
     "知识库/黄哥/2026-07-14_analysis_消费者买结论与生产者生产认知的元二分.md",
     "知识库/抖音蒸馏博主/抖音博主【黄某有话说】全账号视频批量总结分析报告（深度底层投资逻辑向）.pdf",
