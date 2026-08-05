@@ -1,0 +1,457 @@
+:root {
+  --virtual-link-opacity: 0.6;
+  --settings-box-min-width: 200px;
+  --settings-box-min-height: 60px;
+  --virtual-link-note-color: #c0392b;
+  --virtual-link-header-color: #517ea0;
+  --virtual-link-highlight-bg: rgba(255, 212, 0, 0.5);
+}
+
+/* Basic virtual link styles */
+.virtual-link-span {
+  display: inline;
+  background-color: #e6e6e6;
+  position: relative;
+}
+
+.virtual-link-span,
+.virtual-link-span a,
+.virtual-link-default,
+.virtual-link-header,
+.virtual-link-span .internal-link {
+  text-decoration: none;
+  filter: brightness(var(--virtual-link-opacity));
+}
+
+/* Color-only display mode: text color instead of background shadow */
+body.virtual-link-color-only .virtual-link-span,
+body.virtual-link-color-only .virtual-link {
+  background-color: transparent;
+}
+
+/* Color-only mode: override background in italic and table contexts */
+body.virtual-link-color-only .virtual-link.cm-em,
+body.virtual-link-color-only .cm-em .virtual-link,
+body.virtual-link-color-only .virtual-link-in-italic,
+body.virtual-link-color-only table th .virtual-link,
+body.virtual-link-color-only table th .virtual-link-span {
+  background-color: transparent;
+}
+
+/* Separate colors for header vs note/alias links (only in color-only mode) */
+/* Note/alias links: use note color */
+body.virtual-link-color-only .virtual-link-span:not(.virtual-link-type-header),
+body.virtual-link-color-only .virtual-link:not(.virtual-link-type-header) .virtual-link-a,
+body.virtual-link-color-only .virtual-link:not(.virtual-link-type-header) a,
+body.virtual-link-color-only .virtual-link:not(.virtual-link-type-header) .internal-link {
+  color: var(--virtual-link-note-color);
+  filter: none;
+  opacity: 1;
+}
+
+/* Header links: use header color */
+body.virtual-link-color-only .virtual-link-span.virtual-link-type-header,
+body.virtual-link-color-only .virtual-link-type-header .virtual-link-a,
+body.virtual-link-color-only .virtual-link-type-header a,
+body.virtual-link-color-only .virtual-link-type-header .internal-link {
+  color: var(--virtual-link-header-color);
+  filter: none;
+  opacity: 1;
+}
+
+/* Color-only mode: highlight context keeps yellow background (方案Q) */
+body.virtual-link-color-only .virtual-link.cm-highlight,
+body.virtual-link-color-only .cm-highlight .virtual-link,
+body.virtual-link-color-only .virtual-link-in-highlight,
+body.virtual-link-color-only .virtual-link-span.virtual-link-in-highlight,
+body.virtual-link-color-only .markdown-preview-view mark .virtual-link,
+body.virtual-link-color-only .markdown-preview-view mark .virtual-link-span {
+  background-color: var(--virtual-link-highlight-bg);
+}
+
+/* Preserve strikethrough in virtual links */
+.cm-strikethrough .virtual-link-span,
+.cm-strikethrough .virtual-link-span a,
+.cm-strikethrough .virtual-link-default,
+.cm-strikethrough .virtual-link-header,
+.virtual-link-span.cm-strikethrough,
+.virtual-link-span.cm-strikethrough a,
+del .virtual-link-span,
+del .virtual-link-span a,
+s .virtual-link-span,
+s .virtual-link-span a,
+strike .virtual-link-span,
+strike .virtual-link-span a {
+  text-decoration: line-through;
+}
+
+.linker-suffix-icon {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.linker-settings-text-box {
+  min-width: var(--settings-box-min-width);
+  min-height: var(--settings-box-min-height);
+}
+
+.virtual-link-span .multiple-files-references,
+.virtual-link-span .multiple-files-indicator {
+  display: none;
+}
+
+.virtual-link-span:hover .multiple-files-references,
+.virtual-link-span.virtual-link-hover-lock .multiple-files-references {
+  display: inline;
+}
+
+/* Basic virtual link style */
+.virtual-link {
+  display: inline;
+  background-color: #e6e6e6;
+  position: relative;
+}
+
+/* Virtual link in header context: inherit header text color */
+html body .cm-header .virtual-link-a,
+html body .cm-header .virtual-link,
+html body .cm-header .virtual-link-span,
+html body .cm-header .virtual-link-span a,
+html body .cm-header .virtual-link-default,
+html body .cm-header .virtual-link-header,
+html body .virtual-link-in-header,
+html body .virtual-link-in-header a {
+  color: inherit;
+  filter: none;
+  opacity: 1;
+}
+
+/* Virtual link in bold context */
+.virtual-link.cm-strong,
+.cm-strong .virtual-link {
+  font-weight: var(--bold-weight, bold);
+}
+
+/* Ensure virtual links maintain style in CodeMirror bold */
+.cm-strong .virtual-link-span {
+  font-weight: inherit;
+}
+
+/* Hover effect */
+.virtual-link:hover .multiple-files-references,
+.cm-strong .virtual-link:hover .multiple-files-references,
+.virtual-link.virtual-link-hover-lock .multiple-files-references {
+  display: inline;
+}
+
+/* Multiple files indicator */
+.virtual-link .multiple-files-references,
+.virtual-link .multiple-files-indicator {
+  display: none;
+}
+
+.virtual-link:hover .multiple-files-references {
+  display: inline;
+}
+
+/* Handle nested cases */
+.cm-strong .virtual-link .virtual-link {
+    font-weight: inherit;
+}
+
+/* Virtual links in italic context */
+.virtual-link.cm-em,
+.cm-em .virtual-link,
+.virtual-link-in-italic {
+  font-style: italic;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+/* Virtual links in highlight context */
+.virtual-link.cm-highlight,
+.cm-highlight .virtual-link,
+.virtual-link-in-highlight,
+.virtual-link-span.virtual-link-in-highlight,
+.markdown-preview-view mark .virtual-link,
+.markdown-preview-view mark .virtual-link-span {
+  display: inline;
+  position: relative;
+  z-index: 1;
+}
+
+/* Virtual links in triple asterisk (bold-italic) context */
+.virtual-link.cm-strong.cm-em,
+.cm-strong.cm-em .virtual-link,
+.virtual-link-in-triple-star {
+    font-weight: var(--bold-weight, bold);
+    font-style: italic;
+}
+
+/* Ensure nested style inheritance */
+.cm-em .virtual-link .virtual-link {
+    font-style: inherit;
+}
+
+.cm-strong.cm-em .virtual-link .virtual-link {
+    font-weight: inherit;
+    font-style: inherit;
+}
+
+/* Restore original background implementation for virtual links */
+.virtual-link,
+.virtual-link-span {
+    background-color: rgba(128, 128, 128, 0.1);
+    position: relative;
+}
+
+/* Strikethrough style - using native text-decoration */
+.cm-strikethrough {
+    text-decoration: line-through;
+}
+
+/* Virtual links in strikethrough context */
+.cm-strikethrough .virtual-link,
+.virtual-link.cm-strikethrough,
+.cm-strikethrough .virtual-link-span,
+.virtual-link-span.cm-strikethrough,
+.virtual-link-in-strikethrough {
+    text-decoration: line-through;
+}
+
+/* Virtual links in tables */
+table th .virtual-link,
+table th .virtual-link-span {
+    font-weight: var(--bold-weight, bold);
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+table th .virtual-link-span,
+table th .virtual-link-span a,
+table th .virtual-link-default,
+table th .virtual-link-header,
+table th .virtual-link-span .internal-link {
+    font-weight: var(--bold-weight, bold);
+    filter: brightness(var(--virtual-link-opacity));
+}
+
+/* Ensure virtual links in highlighted text always have yellow background in read mode */
+.markdown-preview-view mark:not(del):not(s):not(strike) .virtual-link,
+.markdown-preview-view mark:not(del):not(s):not(strike) .virtual-link-span {
+    /* Do not override mark's highlight color, let virtual links only show their own shadow */
+}
+
+/* Virtual link click area optimization - centered transparent click layer solution */
+.virtual-link-a {
+    position: relative;
+    display: inline-block;
+}
+.virtual-link-a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1.5em;
+    height: 1.5em;
+    z-index: 0;
+}
+
+/* Special handling for highlighted virtual links within tables */
+.cm-table-widget .cm-highlight .virtual-link,
+.table-cell-wrapper .cm-highlight .virtual-link {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================================
+ * Alternative Display Style
+ * Enabled via "Alternative display style" toggle in settings
+ * - Strikethrough → underline
+ * - %%comments%% → collapsed to dot, expand on active line
+ * ============================================================ */
+
+/* Standard prominent underline */
+.virtual-linker-alt-style u {
+  text-decoration: underline;
+}
+
+/* Basic virtual link style: no text decoration by default, excluding strikethrough context */
+body.virtual-linker-alt-style .virtual-link:not(.cm-strikethrough):not(.virtual-link-in-strikethrough),
+body.virtual-linker-alt-style .virtual-link-span:not(.cm-strikethrough):not(.virtual-link-in-strikethrough),
+body.virtual-linker-alt-style .virtual-link-a:not(.cm-strikethrough):not(.virtual-link-in-strikethrough) {
+  text-decoration: none;
+}
+
+/* Force override CodeMirror strikethrough default style */
+body.virtual-linker-alt-style .cm-strikethrough {
+  text-decoration: underline;
+}
+
+/* Change reading mode strikethrough to underline */
+body.virtual-linker-alt-style .markdown-preview-view del,
+body.virtual-linker-alt-style .markdown-rendered del,
+body.virtual-linker-alt-style .markdown-preview-view s,
+body.virtual-linker-alt-style .markdown-rendered s,
+body.virtual-linker-alt-style .markdown-preview-view strike,
+body.virtual-linker-alt-style .markdown-rendered strike {
+  text-decoration: underline;
+}
+
+/* Virtual links in strikethrough context: show as underline */
+body.virtual-linker-alt-style .cm-strikethrough .virtual-link,
+body.virtual-linker-alt-style .cm-strikethrough .virtual-link-span,
+body.virtual-linker-alt-style .virtual-link.cm-strikethrough,
+body.virtual-linker-alt-style .virtual-link-span.cm-strikethrough,
+body.virtual-linker-alt-style .virtual-link-in-strikethrough,
+body.virtual-linker-alt-style .virtual-link-in-strikethrough .virtual-link-a,
+body.virtual-linker-alt-style .cm-strikethrough .virtual-link-a,
+body.virtual-linker-alt-style .virtual-link-a.cm-strikethrough,
+/* Reading mode */
+body.virtual-linker-alt-style .markdown-preview-view del .virtual-link,
+body.virtual-linker-alt-style .markdown-preview-view del .virtual-link-span,
+body.virtual-linker-alt-style .markdown-preview-view del .virtual-link-a,
+body.virtual-linker-alt-style .markdown-preview-view s .virtual-link,
+body.virtual-linker-alt-style .markdown-preview-view s .virtual-link-span,
+body.virtual-linker-alt-style .markdown-preview-view s .virtual-link-a,
+body.virtual-linker-alt-style .markdown-preview-view strike .virtual-link,
+body.virtual-linker-alt-style .markdown-preview-view strike .virtual-link-span,
+body.virtual-linker-alt-style .markdown-preview-view strike .virtual-link-a,
+body.virtual-linker-alt-style .markdown-rendered del .virtual-link,
+body.virtual-linker-alt-style .markdown-rendered del .virtual-link-span,
+body.virtual-linker-alt-style .markdown-rendered del .virtual-link-a,
+body.virtual-linker-alt-style .markdown-rendered s .virtual-link,
+body.virtual-linker-alt-style .markdown-rendered s .virtual-link-span,
+body.virtual-linker-alt-style .markdown-rendered s .virtual-link-a,
+body.virtual-linker-alt-style .markdown-rendered strike .virtual-link,
+body.virtual-linker-alt-style .markdown-rendered strike .virtual-link-span,
+body.virtual-linker-alt-style .markdown-rendered strike .virtual-link-a {
+  text-decoration: underline;
+}
+
+/* Special override: ensure virtual link a elements in strikethrough context show underline */
+body.virtual-linker-alt-style .cm-strikethrough .virtual-link-span a.virtual-link-a,
+body.virtual-linker-alt-style .virtual-link-span.cm-strikethrough a.virtual-link-a,
+body.virtual-linker-alt-style .virtual-link-in-strikethrough a.virtual-link-a,
+body.virtual-linker-alt-style del .virtual-link-span a.virtual-link-a,
+body.virtual-linker-alt-style s .virtual-link-span a.virtual-link-a,
+body.virtual-linker-alt-style strike .virtual-link-span a.virtual-link-a {
+  text-decoration: underline;
+}
+
+/* Disable plugin-drawn strikethrough pseudo-elements */
+body.virtual-linker-alt-style .cm-strikethrough .virtual-link::after,
+body.virtual-linker-alt-style .cm-strikethrough .virtual-link-span::after,
+body.virtual-linker-alt-style .virtual-link.cm-strikethrough::after,
+body.virtual-linker-alt-style .virtual-link-span.cm-strikethrough::after,
+body.virtual-linker-alt-style .virtual-link-in-strikethrough::after,
+body.virtual-linker-alt-style .markdown-preview-view .cm-strikethrough .virtual-link::after,
+body.virtual-linker-alt-style .markdown-preview-view .virtual-link.cm-strikethrough::after,
+body.virtual-linker-alt-style .markdown-preview-view .cm-strikethrough .virtual-link-span::after,
+body.virtual-linker-alt-style .markdown-preview-view .virtual-link-span.cm-strikethrough::after,
+body.virtual-linker-alt-style .markdown-preview-view del .virtual-link::after,
+body.virtual-linker-alt-style .markdown-preview-view del .virtual-link-span::after,
+body.virtual-linker-alt-style .markdown-preview-view s .virtual-link::after,
+body.virtual-linker-alt-style .markdown-preview-view s .virtual-link-span::after,
+body.virtual-linker-alt-style .markdown-preview-view strike .virtual-link::after,
+body.virtual-linker-alt-style .markdown-preview-view strike .virtual-link-span::after {
+  display: none;
+  content: none;
+}
+
+/* 
+ * In live preview mode, collapse %%comments%% into small dots, expand on active line
+ */
+
+/* 1. Default: hide all text inside comments (including %% markers) */
+.virtual-linker-alt-style .cm-line .cm-comment {
+  font-size: 0;
+  color: transparent;
+  transition: font-size 0.15s ease;
+}
+
+/* 2. Use pseudo-element to display a dot marker at the first non-formatting comment text position */
+.virtual-linker-alt-style .cm-line .cm-comment:not(.cm-formatting)::before {
+  --text-faint: #409eff;
+  content: "•";
+  font-size: 0.9rem;
+  color: var(--text-faint);
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+/* 2b. Subsequent non-formatting comment text no longer shows dot */
+.virtual-linker-alt-style .cm-line .cm-comment:not(.cm-formatting) ~ .cm-comment:not(.cm-formatting)::before {
+  content: none;
+  display: none;
+}
+
+/* 3. Also completely hide %% markers themselves (no space) */
+.virtual-linker-alt-style .cm-line .cm-formatting-comment {
+  display: none;
+}
+
+/* 4. Hide virtual links inside comment blocks (non-active lines only) */
+/* Uses .virtual-link-in-comment class added by TypeScript */
+/* Note: only .cm-line has .cm-active, not .cm-content */
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .virtual-link-in-comment,
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .virtual-link-in-comment .virtual-link-a,
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .cm-comment .virtual-link,
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .cm-comment .virtual-link-span,
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .cm-comment .virtual-link-a {
+  font-size: 0;
+  color: transparent;
+}
+
+/* 4b. Hide pseudo-elements of virtual links inside comment blocks */
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .virtual-link-in-comment::after,
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .virtual-link-in-comment .virtual-link-a::after,
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .cm-comment .virtual-link::after,
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .cm-comment .virtual-link-span::after,
+body.virtual-linker-alt-style .cm-line:not(.cm-active) .cm-comment .virtual-link-a::after {
+  display: none;
+  content: none;
+}
+
+/* 5. When on active line: restore comment text and hide dot */
+.virtual-linker-alt-style .cm-line.cm-active .cm-comment {
+  font-size: inherit;
+  color: #409eff;
+}
+.virtual-linker-alt-style .cm-line.cm-active .cm-comment:not(.cm-formatting)::before {
+  display: none;
+}
+
+/* 5b. When on active line: restore visibility of virtual links inside comment blocks */
+body.virtual-linker-alt-style .cm-line.cm-active .virtual-link-in-comment,
+body.virtual-linker-alt-style .cm-line.cm-active .virtual-link-in-comment .virtual-link-a,
+body.virtual-linker-alt-style .cm-line.cm-active .cm-comment .virtual-link,
+body.virtual-linker-alt-style .cm-line.cm-active .cm-comment .virtual-link-span,
+body.virtual-linker-alt-style .cm-line.cm-active .cm-comment .virtual-link-a {
+  font-size: inherit;
+  color: #409eff;
+  filter: none;
+  opacity: 1;
+}
+/* In color-only mode, virtual links inside comments show the custom link color */
+body.virtual-link-color-only.virtual-linker-alt-style .cm-line.cm-active .virtual-link-in-comment,
+body.virtual-link-color-only.virtual-linker-alt-style .cm-line.cm-active .virtual-link-in-comment .virtual-link-a,
+body.virtual-link-color-only.virtual-linker-alt-style .cm-line.cm-active .cm-comment .virtual-link,
+body.virtual-link-color-only.virtual-linker-alt-style .cm-line.cm-active .cm-comment .virtual-link-span,
+body.virtual-link-color-only.virtual-linker-alt-style .cm-line.cm-active .cm-comment .virtual-link-a {
+  color: var(--virtual-link-color);
+  opacity: 1;
+}
+
+/* 6. (Optional) If you want expand on hover, replace the active-line version above with these */
+/*
+.virtual-linker-alt-style .cm-line:hover .cm-comment {
+  font-size: inherit;
+  color: #409eff;
+}
+.virtual-linker-alt-style .cm-line:hover .cm-comment:not(.cm-formatting)::before {
+  display: none;
+}
+*/
