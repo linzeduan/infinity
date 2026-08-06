@@ -11,12 +11,24 @@
             "id": "5a32ebca7ac71710",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "原始资料/博客/黄哥/20260805谷歌的AI，是向内的生长（一） .pdf"
+                "file": "知识库/_processed.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
-              "icon": "lucide-file-text",
-              "title": "20260805谷歌的AI，是向内的生长（一）"
+              "icon": "lucide-file",
+              "title": "_processed"
             }
           }
         ]
@@ -81,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 480.16668701171875,
-    "collapsed": true
+    "width": 480.16668701171875
   },
   "right": {
     "id": "72fad77091fe6535",
@@ -189,17 +200,20 @@
   },
   "active": "5a32ebca7ac71710",
   "lastOpenFiles": [
+    "知识库/目录.md",
+    "知识库/黄哥/2026-08-05_analysis_谷歌三业务底座与向内生长.md",
+    "知识库/黄哥/2026-07-30_analysis_商业航天五层拆解与搬运工降级.md",
+    "知识库/黄哥/2026-07-07_analysis_OpenAI自研推理芯片与训练推理二分.md",
+    "知识库/黄哥/2026-07-16_analysis_阿斯麦汽车品牌商模型与五层光刻产业链.md",
+    "知识库/黄哥/2026-08-04_analysis_宏发中报三段落差与自我修正.md",
+    "原始资料/博客/黄哥/20260805谷歌的AI，是向内的生长（一） .pdf",
     "CLAUDE.md.tmp.13972.b6b9464584c6",
     "知识库/目录.md.tmp.13972.5fba51d6a8c5",
     "知识库/目录.md.tmp.13972.8332ffb05b5c",
     "知识库/_processed.md.tmp.13972.259ffa32c4ba",
     "知识库/黄哥/2026-04-24_model_黄哥投资决策体系.md.tmp.13972.1dc5fb1ca268",
-    "知识库/黄哥/2026-08-05_analysis_谷歌三业务底座与向内生长.md",
     "知识库/黄哥/2026-08-05_analysis_谷歌三业务底座与向内生长.md.tmp.13972.2ead0a62b414",
     "知识库/黄哥/2026-04-24_model_黄哥投资决策体系.md",
-    "原始资料/博客/黄哥/20260805谷歌的AI，是向内的生长（一） .pdf",
-    "知识库/目录.md",
-    "知识库/黄哥/2026-08-04_analysis_宏发中报三段落差与自我修正.md",
     "知识库/黄哥/2026-08-03_analysis_宏发三段估值与自陈仓位纪律.md"
   ]
 }
