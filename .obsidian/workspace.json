@@ -1,29 +1,34 @@
 {
   "main": {
-    "id": "2e147df0238470b3",
+    "id": "2a334731a759ef9f",
     "type": "split",
     "children": [
       {
-        "id": "c1859913933d6198",
+        "id": "a42f5c4fae8f113a",
         "type": "tabs",
         "children": [
           {
-            "id": "5a32ebca7ac71710",
+            "id": "423d933822713be0",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-<<<<<<< HEAD
-                "file": "原始资料/博客/黄哥/20260805谷歌的AI，是向内的生长（一） .pdf"
+                "file": "原始资料/博客/孟岩/2026-08-07T204721+0800大水与容器.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
-              "icon": "lucide-file-text",
-              "title": "20260805谷歌的AI，是向内的生长（一）"
-=======
-                "file": "原始资料/博客/黄哥/260806谷歌的AI，是向内的生长 （二） .pdf"
-              },
-              "icon": "lucide-file-text",
-              "title": "260806谷歌的AI，是向内的生长 （二）"
->>>>>>> f9054f7 (sync: FATE [2026/08/07 周五 20:33:46.65])
+              "icon": "lucide-file",
+              "title": "2026-08-07T204721+0800大水与容器"
             }
           }
         ]
@@ -32,15 +37,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "5cbc30e3677b2122",
+    "id": "b5c7748839c6b2ea",
     "type": "split",
     "children": [
       {
-        "id": "6baf76cf136a01e8",
+        "id": "a3436983ad302e2d",
         "type": "tabs",
         "children": [
           {
-            "id": "ec092f1f0ac09a69",
+            "id": "c97475747a7e7121",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -55,7 +60,7 @@
             }
           },
           {
-            "id": "3b12ca12be75b961",
+            "id": "ddc57956e2b94b19",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -72,7 +77,7 @@
             }
           },
           {
-            "id": "e48835fe08eecb66",
+            "id": "e08ea8759545034e",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -88,24 +93,23 @@
       }
     ],
     "direction": "horizontal",
-    "width": 480.16668701171875,
-    "collapsed": true
+    "width": 300
   },
   "right": {
-    "id": "72fad77091fe6535",
+    "id": "e5b049e83fd5fa8b",
     "type": "split",
     "children": [
       {
-        "id": "46a6079fbe58b55a",
+        "id": "e44b3d4f0b3d3d38",
         "type": "tabs",
         "children": [
           {
-            "id": "632c214590d069af",
+            "id": "1e39b4a58d10d45c",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "知识库/黄哥/2026-04-24_model_黄哥投资决策体系.md",
+                "file": "知识库/黄哥/2026-08-06_analysis_谷歌云AI三阶段与自由现金流首次转负.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,12 +123,12 @@
             }
           },
           {
-            "id": "79294f723779862b",
+            "id": "f5cf3adbb72b7e58",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "知识库/黄哥/2026-04-24_model_黄哥投资决策体系.md",
+                "file": "知识库/黄哥/2026-08-06_analysis_谷歌云AI三阶段与自由现金流首次转负.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -133,7 +137,7 @@
             }
           },
           {
-            "id": "a98b62c0ef2ea518",
+            "id": "16b114fd098678ea",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -148,7 +152,7 @@
             }
           },
           {
-            "id": "dcda656116ecf754",
+            "id": "144ec2b0122d4a82",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -162,12 +166,12 @@
             }
           },
           {
-            "id": "f1ca04f9eaf821ee",
+            "id": "bd6d5488731fa1e2",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "知识库/黄哥/2026-04-24_model_黄哥投资决策体系.md",
+                "file": "知识库/黄哥/2026-08-06_analysis_谷歌云AI三阶段与自由现金流首次转负.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -194,27 +198,14 @@
       "bases:新建数据库": false
     }
   },
-  "active": "5a32ebca7ac71710",
+  "active": "c97475747a7e7121",
   "lastOpenFiles": [
-<<<<<<< HEAD
-=======
-    "原始资料/博客/黄哥/260805谷歌的AI，是向内的生长（一）.pdf",
-    "原始资料/博客/黄哥/260806谷歌的AI，是向内的生长 （二） .pdf",
->>>>>>> f9054f7 (sync: FATE [2026/08/07 周五 20:33:46.65])
-    "知识库/_processed.md",
-    "知识库/目录.md",
+    "原始资料/博客/孟岩",
+    "知识库/黄哥/2026-08-06_analysis_谷歌云AI三阶段与自由现金流首次转负.md",
+    "原始资料/博客/孟岩/2026-08-07T204721+0800大水与容器.md",
+    "Untitled.md",
     "知识库/黄哥/2026-08-05_analysis_谷歌三业务底座与向内生长.md",
-    "知识库/黄哥/2026-07-30_analysis_商业航天五层拆解与搬运工降级.md",
-    "知识库/黄哥/2026-07-07_analysis_OpenAI自研推理芯片与训练推理二分.md",
-    "知识库/黄哥/2026-07-16_analysis_阿斯麦汽车品牌商模型与五层光刻产业链.md",
-    "知识库/黄哥/2026-08-04_analysis_宏发中报三段落差与自我修正.md",
-    "CLAUDE.md.tmp.13972.b6b9464584c6",
-    "知识库/目录.md.tmp.13972.5fba51d6a8c5",
-    "知识库/目录.md.tmp.13972.8332ffb05b5c",
-    "知识库/_processed.md.tmp.13972.259ffa32c4ba",
-    "知识库/黄哥/2026-04-24_model_黄哥投资决策体系.md.tmp.13972.1dc5fb1ca268",
-    "知识库/黄哥/2026-08-05_analysis_谷歌三业务底座与向内生长.md.tmp.13972.2ead0a62b414",
-    "知识库/黄哥/2026-04-24_model_黄哥投资决策体系.md",
-    "知识库/黄哥/2026-08-03_analysis_宏发三段估值与自陈仓位纪律.md"
+    "原始资料/博客/黄哥/260806谷歌的AI，是向内的生长 （二） .pdf",
+    "原始资料/博客/黄哥/260805谷歌的AI，是向内的生长（一）.pdf"
   ]
 }
