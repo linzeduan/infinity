@@ -11,24 +11,12 @@
             "id": "5a32ebca7ac71710",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "知识库/_processed.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "原始资料/博客/黄哥/20260805谷歌的AI，是向内的生长（一） .pdf"
               },
-              "icon": "lucide-file",
-              "title": "_processed"
+              "icon": "lucide-file-text",
+              "title": "20260805谷歌的AI，是向内的生长（一）"
             }
           }
         ]
@@ -200,6 +188,7 @@
   },
   "active": "5a32ebca7ac71710",
   "lastOpenFiles": [
+    "知识库/_processed.md",
     "知识库/目录.md",
     "知识库/黄哥/2026-08-05_analysis_谷歌三业务底座与向内生长.md",
     "知识库/黄哥/2026-07-30_analysis_商业航天五层拆解与搬运工降级.md",
