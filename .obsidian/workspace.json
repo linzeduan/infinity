@@ -11,24 +11,12 @@
             "id": "423d933822713be0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "pdf",
               "state": {
-                "file": "原始资料/博客/梁文锋/2026-07-23T102021+0800梁文锋四小时投资人会议实录.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "原始资料/博客/黄哥/260810英特尔已经一分为二了——设计英特尔和制造英特尔  (1).pdf"
               },
-              "icon": "lucide-file",
-              "title": "2026-07-23T102021+0800梁文锋四小时投资人会议实录"
+              "icon": "lucide-file-text",
+              "title": "260810英特尔已经一分为二了——设计英特尔和制造英特尔  (1)"
             }
           }
         ]
@@ -93,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "e5b049e83fd5fa8b",
@@ -200,6 +189,12 @@
   },
   "active": "423d933822713be0",
   "lastOpenFiles": [
+    "知识库/孟岩/2026-08-08_concept_有知有行章程的第三段困境.md",
+    "知识库/黄哥/2026-08-10_analysis_英特尔一分为二与Foundry期权定价.md",
+    "知识库/黄哥/2026-08-10_analysis_英特尔一分为二与Foundry期权定价.md.tmp.4284.1c84d3a0fa84",
+    "知识库/孟岩/2026-08-07_concept_三段水路与容器论.md",
+    "原始资料/博客/梁文锋/2026-07-23T102021+0800梁文锋四小时投资人会议实录.md",
+    "原始资料/博客/黄哥/260810英特尔已经一分为二了——设计英特尔和制造英特尔  (1).pdf",
     "原始资料/博客/梁文锋/梁文锋投资者交流会-文字稿.pdf",
     "原始资料/博客/黄哥/260807谷歌（三）——谷歌应该值多少钱.pdf",
     "原始资料/博客/黄哥/260806谷歌的AI，是向内的生长 （二） .pdf",
