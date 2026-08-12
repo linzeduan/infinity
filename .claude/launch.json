@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "huangge-dashboard",
-      "runtimeExecutable": "C:\\Users\\29443\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
-      "runtimeArgs": ["-m", "http.server", "8748", "--directory", "D:\\Abandon\\infinity\\.claude\\tools\\huangge-dashboard"],
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8748", "--directory", ".claude\\tools\\huangge-dashboard"],
       "port": 8748
     }
   ]

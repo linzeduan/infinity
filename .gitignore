@@ -34,5 +34,7 @@ venv/
 
 # Claude 机器本地配置（可能含密钥，禁止入库）
 .claude/settings.local.json
- 
- 
+
+# 本地派生产物
+.claude/tools/huangge-dashboard/dashboard.html
+tmp/

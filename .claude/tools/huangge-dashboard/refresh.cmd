@@ -1,7 +1,22 @@
 @echo off
-rem HuangGe dashboard daily refresh: fetch FRED data, rebuild HTML, open in browser
-cd /d "D:\Abandon\infinity\.claude\tools\huangge-dashboard"
-set PYTHONIOENCODING=utf-8
-echo ==== %date% %time% ==== >> refresh.log
-"C:\Users\29443\AppData\Local\Programs\Python\Python312\python.exe" generate.py >> refresh.log 2>&1
-start "" "D:\Abandon\infinity\.claude\tools\huangge-dashboard\dashboard.html"
+setlocal
+cd /d "%~dp0"
+set "PYTHONIOENCODING=utf-8"
+
+where python >nul 2>nul
+if errorlevel 1 (
+    echo Python was not found on PATH.
+    pause
+    exit /b 1
+)
+
+echo ==== %date% %time% ==== >> "%~dp0refresh.log"
+python "%~dp0generate.py" >> "%~dp0refresh.log" 2>&1
+if errorlevel 1 (
+    echo Dashboard refresh failed. See refresh.log.
+    pause
+    exit /b 1
+)
+
+start "" "%~dp0dashboard.html"
+exit /b 0
