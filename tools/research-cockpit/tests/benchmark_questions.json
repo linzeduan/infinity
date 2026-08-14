@@ -1,0 +1,22 @@
+[
+  {"query":"黄哥对 AI 资本开支拐点的判断是什么？","expected_sources":["黄哥"]},
+  {"query":"终端现金流监测体系包含哪些指标？","expected_sources":["黄哥"]},
+  {"query":"黄哥如何理解黄金的四个对手盘？","expected_sources":["黄哥"]},
+  {"query":"京东方的两套估值逻辑有哪些矛盾？","expected_sources":["黄哥"]},
+  {"query":"宏发股份的买入和卖出阈值是什么？","expected_sources":["黄哥"]},
+  {"query":"谷歌分部加总估值如何计算？","expected_sources":["黄哥"]},
+  {"query":"Intel Foundry 外部客户收入为何重要？","expected_sources":["黄哥"]},
+  {"query":"商业航天两线交叉法如何使用？","expected_sources":["黄哥","框架"]},
+  {"query":"浪淘沙对 3794 点的判断如何变化？","expected_sources":["浪淘沙投研说"]},
+  {"query":"浪淘沙的仓位纪律有哪些适用边界？","expected_sources":["浪淘沙投研说"]},
+  {"query":"孟岩的三段水路分别是什么？","expected_sources":["孟岩"]},
+  {"query":"大水与容器如何解释基金抱团？","expected_sources":["孟岩"]},
+  {"query":"有知有行章程与容器论有何冲突？","expected_sources":["孟岩"]},
+  {"query":"物理瓶颈论的核心检查步骤是什么？","expected_sources":["框架"]},
+  {"query":"个人心理画像中的讨好循环是什么？","expected_sources":["知识库"]},
+  {"query":"梁文锋如何定义组织的克制？","expected_sources":["梁文锋"]},
+  {"query":"JACK 思想实验目前收录了哪些主题？","expected_sources":["JACK"]},
+  {"query":"当前有哪些预测已经到期但仍待验证？","expected_sources":["知识库"]},
+  {"query":"比较黄哥与浪淘沙对 A 股的分歧","expected_sources":["黄哥","浪淘沙投研说"]},
+  {"query":"找出支持和反对 AI 泡沫判断的证据","expected_sources":["黄哥"]}
+]

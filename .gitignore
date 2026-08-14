@@ -23,6 +23,7 @@ node_modules/
 __pycache__/
 *.pyc
 venv/
+.venv/
 
 # 临时编辑文件
 ~$*
@@ -38,3 +39,9 @@ venv/
 # 本地派生产物
 .claude/tools/huangge-dashboard/dashboard.html
 tmp/
+tools/research-cockpit/frontend/dist/
+tools/research-cockpit/.playwright/
+tools/research-cockpit/.playwright-cli/
+tools/research-cockpit/frontend/playwright-report/
+tools/research-cockpit/frontend/test-results/
+tools/research-cockpit/frontend/*.tsbuildinfo
