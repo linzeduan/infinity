@@ -219,9 +219,9 @@ powershell -NoProfile -Command "$p = Start-Process -FilePath 'git.exe' -Argument
 exit /b %ERRORLEVEL%
 
 :push_with_timeout
-powershell -NoProfile -Command "$p = Start-Process -FilePath 'git.exe' -ArgumentList @('push','%REMOTE%','HEAD:%BRANCH%') -NoNewWindow -PassThru; if (-not $p.WaitForExit(120000)) { taskkill.exe /PID $p.Id /T /F 2>&1 | Out-Null; exit 124 }; exit $p.ExitCode"
+powershell -NoProfile -Command "$p = Start-Process -FilePath 'git.exe' -ArgumentList @('-c','http.version=HTTP/1.1','-c','http.postBuffer=10485760','-c','http.maxRequests=1','push','%REMOTE%','HEAD:%BRANCH%') -NoNewWindow -PassThru; if (-not $p.WaitForExit(120000)) { taskkill.exe /PID $p.Id /T /F 2>&1 | Out-Null; exit 124 }; exit $p.ExitCode"
 exit /b %ERRORLEVEL%
 
 :push_direct_with_timeout
-powershell -NoProfile -Command "$p = Start-Process -FilePath 'git.exe' -ArgumentList @('-c','http.proxy=','push','%REMOTE%','HEAD:%BRANCH%') -NoNewWindow -PassThru; if (-not $p.WaitForExit(120000)) { taskkill.exe /PID $p.Id /T /F 2>&1 | Out-Null; exit 124 }; exit $p.ExitCode"
+powershell -NoProfile -Command "$p = Start-Process -FilePath 'git.exe' -ArgumentList @('-c','http.proxy=','-c','https.proxy=','-c','http.version=HTTP/1.1','-c','http.postBuffer=10485760','-c','http.maxRequests=1','push','%REMOTE%','HEAD:%BRANCH%') -NoNewWindow -PassThru; if (-not $p.WaitForExit(120000)) { taskkill.exe /PID $p.Id /T /F 2>&1 | Out-Null; exit 124 }; exit $p.ExitCode"
 exit /b %ERRORLEVEL%
