@@ -92,6 +92,12 @@ if errorlevel 1 (
 git diff --cached --quiet
 if not errorlevel 1 goto no_local_changes
 
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\check_whitespace.ps1" -Mode Staged
+if errorlevel 1 (
+    echo [错误] 暂存内容存在非法空白字符，尚未创建提交。
+    goto failed
+)
+
 echo.
 echo [3/6] 提交本地变更...
 git diff --cached --stat
@@ -148,7 +154,7 @@ if errorlevel 1 (
     goto failed
 )
 
-git diff --check "%REMOTE%/%BRANCH%"..HEAD
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\check_whitespace.ps1" -Mode Range -Range "%REMOTE%/%BRANCH%..HEAD"
 if errorlevel 1 (
     echo [错误] 待推送内容存在空白字符错误，因此没有推送。
     goto failed
