@@ -93,10 +93,7 @@ git diff --cached --quiet
 if not errorlevel 1 goto no_local_changes
 
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\check_whitespace.ps1" -Mode Staged
-if errorlevel 1 (
-    echo [错误] 暂存内容存在非法空白字符，尚未创建提交。
-    goto failed
-)
+if errorlevel 1 goto staged_whitespace_failed
 
 echo.
 echo [3/6] 提交本地变更...
@@ -155,10 +152,7 @@ if errorlevel 1 (
 )
 
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\check_whitespace.ps1" -Mode Range -Range "%REMOTE%/%BRANCH%..HEAD"
-if errorlevel 1 (
-    echo [错误] 待推送内容存在空白字符错误，因此没有推送。
-    goto failed
-)
+if errorlevel 1 goto outgoing_whitespace_failed
 
 echo.
 echo [6/6] 推送本地提交...
@@ -194,6 +188,14 @@ exit /b 0
 :operation_in_progress
 echo [错误] 仓库中存在尚未完成的 merge、rebase 或 cherry-pick。
 echo 请先完成或中止该操作，再运行同步脚本。
+goto failed
+
+:staged_whitespace_failed
+echo [错误] 暂存内容存在非法空白字符，尚未创建提交。
+goto failed
+
+:outgoing_whitespace_failed
+echo [错误] 待推送内容存在空白字符错误，因此没有推送。
 goto failed
 
 :failed
