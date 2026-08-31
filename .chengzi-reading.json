@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "vault_root": ".",
+  "raw_notes_path": "原始资料/微信读书",
+  "reading_conclusions_path": "知识库/读书/阅读结论",
+  "problems_path": "知识库/读书/问题与行动",
+  "general_knowledge_path": "知识库/读书/通用知识",
+  "practice_cases_path": "知识库/读书/实践案例",
+  "reviews_path": "知识库/读书/复盘",
+  "guide_path": "知识库/读书/程子阅读助手使用指南.md",
+  "guide_version": 3,
+  "business_domains": []
+}
