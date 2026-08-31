@@ -1,0 +1,215 @@
+{
+  "loginMethod": "scan",
+  "cookies": [
+    {
+      "name": "wr_fp",
+      "value": "3021487458"
+    },
+    {
+      "name": "wr_skey",
+      "value": "8dJejM8W"
+    },
+    {
+      "name": "wr_vid",
+      "value": "219406423"
+    },
+    {
+      "name": "wr_ql",
+      "value": "0"
+    },
+    {
+      "name": "wr_rt",
+      "value": "web@pfJ3jGzC~ep8_fCa6mY_AL"
+    },
+    {
+      "name": "wr_gid",
+      "value": "292591001"
+    }
+  ],
+  "noteLocation": "原始资料/微信读书",
+  "dailyNotesLocation": "/",
+  "insertAfter": "<!-- start of weread -->",
+  "insertBefore": "<!-- end of weread -->",
+  "dailyNotesFormat": "YYYY-MM-DD",
+  "lastCookieTime": 1788179523297,
+  "isCookieValid": true,
+  "user": "",
+  "userVid": "219406423",
+  "userAvatar": "",
+  "userSignature": "",
+  "template": "",
+  "noteCountLimit": -1,
+  "subFolderType": "-1",
+  "fileNameType": "BOOK_NAME_AUTHOR",
+  "removeParens": false,
+  "removeParensWhitelist": "",
+  "filterInlineImages": false,
+  "dailyNotesToggle": false,
+  "notesBlacklist": "",
+  "notesWhitelist": "",
+  "syncMode": "blacklist",
+  "showEmptyChapterTitleToggle": false,
+  "convertTags": true,
+  "saveArticleToggle": false,
+  "saveReadingInfoToggle": true,
+  "syncPopularHighlightsToggle": true,
+  "readingOpenMode": "TAB",
+  "bookOpenMode": "web",
+  "trimBlocks": false,
+  "cookieCloudInfo": {
+    "serverUrl": "",
+    "uuid": "",
+    "password": ""
+  },
+  "cookieAutoRefreshToggle": false,
+  "cookieRefreshInterval": 12,
+  "scheduledSyncToggle": true,
+  "scheduledSyncInterval": 360,
+  "lastSyncTime": 1788180423258,
+  "lastSyncBookCount": 0,
+  "lastSyncBookTitles": [],
+  "syncLogs": [
+    {
+      "id": "sync-1788180423034",
+      "timestamp": 1788180423034,
+      "totalBooks": 6,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.224,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1788180123025",
+      "timestamp": 1788180123025,
+      "totalBooks": 6,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.213,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1788179823024",
+      "timestamp": 1788179823024,
+      "totalBooks": 6,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.133,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1788179635900",
+      "timestamp": 1788179635900,
+      "totalBooks": 6,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.186,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1788175149934",
+      "timestamp": 1788175149934,
+      "totalBooks": 6,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.226,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1788174849876",
+      "timestamp": 1788174849876,
+      "totalBooks": 6,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.147,
+      "notes": [],
+      "success": true
+    },
+    {
+      "id": "sync-1788174619233",
+      "timestamp": 1788174619233,
+      "totalBooks": 6,
+      "syncedBooks": 6,
+      "skippedBooks": 0,
+      "duration": 3.472,
+      "notes": [
+        {
+          "bookId": "23562048",
+          "title": "堂吉诃德（全2册）",
+          "filePath": "原始资料/微信读书/堂吉诃德（全2册）-【西】塞万提斯.md"
+        },
+        {
+          "bookId": "27027627",
+          "title": "山月记",
+          "filePath": "原始资料/微信读书/山月记-中岛敦.md"
+        },
+        {
+          "bookId": "3300017874",
+          "title": "厌女（增订本）",
+          "filePath": "原始资料/微信读书/厌女（增订本）-【日】上野千鹤子.md"
+        },
+        {
+          "bookId": "35138299",
+          "title": "奥黛丽赫本：一辈子活在优雅里",
+          "filePath": "原始资料/微信读书/奥黛丽赫本：一辈子活在优雅里-艾略.md"
+        },
+        {
+          "bookId": "33810600",
+          "title": "高效能人士的七个习惯（30周年纪念版）（全新增订版）",
+          "filePath": "原始资料/微信读书/高效能人士的七个习惯（30周年纪念版）（全新增订版）-史蒂芬·柯维.md"
+        },
+        {
+          "bookId": "821366",
+          "title": "飞鸟集",
+          "filePath": "原始资料/微信读书/飞鸟集-【印度】泰戈尔.md"
+        }
+      ],
+      "success": true
+    }
+  ],
+  "bookshelfSortMode": "recent",
+  "bookshelfGroupByYear": true,
+  "bookshelfDefaultSyncStatusFilter": "all",
+  "themes": [
+    {
+      "id": "builtin_merged",
+      "name": "合并式模板",
+      "description": "划线和想法 inline 展示，适合快速回顾",
+      "template": "---\nisbn: {{ metaData.isbn }}\nlastReadDate: {{ metaData.lastReadDate }}\n---\n# 元数据\n> [!abstract] {{ metaData.title }}\n> - ![ {{ metaData.title }}|200]({{ metaData.cover }})\n> - 书名： {{ metaData.title }}\n> - 作者： {{ metaData.author }}\n> - 简介： {% set intro = metaData.intro | replace(\"\\n\",\"\") | replace(\"\\r\",\"\") %}{{ intro }}\n> - 出版时间： {{ metaData.publishTime }}\n> - ISBN： {{ metaData.isbn }}\n> - 字数： {{ metaData.totalWords }}\n> - 分类： {{ metaData.category }}\n> - 出版社： {{ metaData.publisher }}\n> - PC地址：{{ metaData.pcUrl }}\n\n# 高亮划线\n{% if syncPopularHighlightsToggle %}\n{% for chapter in chapterHighlights %}\n{% if chapter.level == 1 %}\n## {{ chapter.chapterTitle }}\n{% elif chapter.level == 2 %}\n### {{ chapter.chapterTitle }}\n{% elif chapter.level == 3 %}\n#### {{ chapter.chapterTitle }}\n{% endif %}\n{% for highlight in chapter.highlights %}\n{% set rangeParts = highlight.range | split(\"-\") %}\n{% set deeplink = \"weread://bestbookmark?bookId=\" + metaData.bookId + \"&chapterUid=\" + highlight.chapterUid + \"&rangeStart=\" + rangeParts[0] + \"&rangeEnd=\" + rangeParts[1] %}\n{% if highlight.isPopular and highlight.isUserHighlight %}\n{# 用户自己的划线 + 热门：📌🔥 + 共读人数 #}\n{% if highlight.reviewContent %}\n> 📌🔥 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> 🔥 {{ highlight.popularCount }} 人共读\n> 💭 {{ highlight.reviewContent }} \n> ⏱ {{ highlight.createTime }} ^{{ highlight.bookmarkId }}\n{% else %}\n> 📌🔥 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> 🔥 {{ highlight.popularCount }} 人共读\n> ⏱ {{ highlight.createTime }} ^{{ highlight.bookmarkId }}\n\n{% endif %}\n{% elif highlight.isPopular %}\n{# 只有热门划线（非用户）：🔥 + 共读人数 #}\n> 🔥 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> 📊 {{ highlight.popularCount }} 人共读 ^{{ highlight.bookmarkId }}\n\n{% else %}\n{# 普通用户划线（非热门）：📌 #}\n{% if highlight.reviewContent %}\n> 📌 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> 💭 {{ highlight.reviewContent }} \n> ⏱ {{ highlight.createTime }} ^{{ highlight.bookmarkId }}\n{% else %}\n> 📌 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> ⏱ {{ highlight.createTime }} ^{{ highlight.bookmarkId }}\n\n{% endif %}\n{% endif %}\n{% endfor %}\n{% endfor %}\n{% else %}\n{% for chapter in chapterHighlights %}\n{% if chapter.level == 1 %}\n## {{ chapter.chapterTitle }}\n{% elif chapter.level == 2 %}\n### {{ chapter.chapterTitle }}\n{% elif chapter.level == 3 %}\n#### {{ chapter.chapterTitle }}\n{% endif %}\n{% for highlight in chapter.highlights %}\n{% set rangeParts = highlight.range | split(\"-\") %}\n{% set deeplink = \"weread://bestbookmark?bookId=\" + metaData.bookId + \"&chapterUid=\" + highlight.chapterUid + \"&rangeStart=\" + rangeParts[0] + \"&rangeEnd=\" + rangeParts[1] %}\n{# 普通用户划线（不显示热门）：📌 #}\n{% if highlight.reviewContent %}\n> 📌 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n 💭 {{ highlight.reviewContent }} \n ⏱ {{ highlight.createTime }} ^{{ highlight.bookmarkId }}\n{% else %}\n> 📌 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> ⏱ {{ highlight.createTime }} ^{{ highlight.bookmarkId }}\n\n{% endif %}\n{% endfor %}\n{% endfor %}\n{% endif %}\n\n# 读书笔记\n{% for chapter in bookReview.chapterReviews %}\n{% if chapter.reviews or chapter.chapterReview %}\n## {{ chapter.chapterTitle }}\n{% if chapter.chapterReviews %}\n{% for chapterReview in chapter.chapterReviews %}\n### 章节评论 No.{{ loop.index }}\n- {{ chapterReview.content }} ^{{ chapterReview.reviewId }}\n    - ⏱ {{ chapterReview.createTime }}\n{% endfor %}\n{% endif %}\n{% if chapter.reviews %}\n{% for review in chapter.reviews %}\n### 划线评论\n> 📌 {{ review.abstract | trim }} ^{{ review.reviewId }}\n    💭 {{ review.content }}\n    ⏱ {{ review.createTime }}\n{% endfor %}\n{% endif %}\n{% endif %}\n{% endfor %}\n\n# 本书评论\n{% if bookReview.bookReviews %}\n{% for bookReview in bookReview.bookReviews %}\n## 书评 No.{{ loop.index }}\n{{ bookReview.mdContent }} ^{{ bookReview.reviewId }}\n⏱ {{ bookReview.createTime }}\n{% endfor %}\n{% endif %}\n",
+      "trimBlocks": true,
+      "isBuiltIn": true,
+      "isReadOnly": true,
+      "source": "builtin"
+    },
+    {
+      "id": "builtin_separated",
+      "name": "分离式模板",
+      "description": "先展示纯划线，笔记统一在底部，适合整理归纳",
+      "template": "---\nisbn: {{ metaData.isbn }}\nlastReadDate: {{ metaData.lastReadDate }}\n---\n# 元数据\n> [!abstract] {{ metaData.title }}\n> - ![ {{ metaData.title }}|200]({{ metaData.cover }})\n> - 书名： {{ metaData.title }}\n> - 作者： {{ metaData.author }}\n> - 简介： {% set intro = metaData.intro | replace(\"\\n\",\"\") | replace(\"\\r\",\"\") %}{{ intro }}\n> - 出版时间： {{ metaData.publishTime }}\n> - ISBN： {{ metaData.isbn }}\n> - 字数： {{ metaData.totalWords }}\n> - 分类： {{ metaData.category }}\n> - 出版社： {{ metaData.publisher }}\n> - PC地址：{{ metaData.pcUrl }}\n\n# 高亮划线\n{% for chapter in chapterHighlights %}\n{% if chapter.level == 1 %}\n## {{ chapter.chapterTitle }}\n{% elif chapter.level == 2 %}\n### {{ chapter.chapterTitle }}\n{% elif chapter.level == 3 %}\n#### {{ chapter.chapterTitle }}\n{% endif %}\n{% for highlight in chapter.highlights %}\n{% set rangeParts = highlight.range | split(\"-\") %}\n{% set deeplink = \"weread://bestbookmark?bookId=\" + metaData.bookId + \"&chapterUid=\" + highlight.chapterUid + \"&rangeStart=\" + rangeParts[0] + \"&rangeEnd=\" + rangeParts[1] %}\n{% if syncPopularHighlightsToggle and highlight.isPopular %}\n> 📌🔥 [{{ highlight.markText | trim }}](<{{ deeplink }}>)  \n> 🔥 {{ highlight.popularCount }} 人共读 ^{{ highlight.bookmarkId }}\n\n{% else %}\n> 📌 [{{ highlight.markText | trim }}](<{{ deeplink }}>)   ^{{ highlight.bookmarkId }}\n\n{% endif %}\n{% endfor %}\n{% endfor %}\n\n# 笔记汇总\n{% for chapter in chapterHighlights %}\n{% for highlight in chapter.highlights %}\n{% if highlight.reviewContent %}\n## {{ chapter.chapterTitle }} 的想法\n{{ highlight.reviewContent }}\n> 📌 {{ highlight.markText | trim }}\n\n{% endif %}\n{% endfor %}\n{% endfor %}\n\n{% if bookReview.bookReviews %}\n{% for bookReview in bookReview.bookReviews %}\n# 书评\n\n{{ bookReview.mdContent }}\n{{ bookReview.createTime }}\n{% endfor %}\n{% endif %}\n",
+      "trimBlocks": true,
+      "isBuiltIn": true,
+      "isReadOnly": true,
+      "source": "builtin"
+    },
+    {
+      "id": "builtin_official",
+      "name": "微信官方笔记主题",
+      "description": "详细的元数据信息，适合生成书籍笔记",
+      "template": "---\nisbn: {{ metaData.isbn }}\nlastReadDate: {{ metaData.lastReadDate }}\n---\n《{{ metaData.title }}》\n{{ metaData.author }}\n{{ metaData.totalWords }}字\n{{ metaData.noteCount }}个笔记\n\n{% if bookReview.bookReviews %}\n{% for bookReview in bookReview.bookReviews %}\n◆ 点评\n{{ bookReview.createTime }}\n{{ bookReview.mdContent }}\n{% endfor %}\n{% endif %}\n\n{% for chapter in chapterHighlights %}\n{% if chapter.level == 1 %}\n## ◆ {{ chapter.chapterTitle }}\n{% elif chapter.level == 2 %}\n### ◆ {{ chapter.chapterTitle }}\n{% elif chapter.level == 3 %}\n#### ◆ {{ chapter.chapterTitle }}\n{% endif %}\n{% for highlight in chapter.highlights %}\n{% set rangeParts = highlight.range | split(\"-\") %}\n{% set deeplink = \"weread://bestbookmark?bookId=\" + metaData.bookId + \"&chapterUid=\" + highlight.chapterUid + \"&rangeStart=\" + rangeParts[0] + \"&rangeEnd=\" + rangeParts[1] %}\n{% if highlight.reviewContent %}\n\n{{ highlight.createTime }} 发表想法\n{{ highlight.reviewContent }}\n\n{% if syncPopularHighlightsToggle and highlight.isPopular %}\n> [{{ highlight.markText | trim }}](<{{ deeplink }}>) ^{{ highlight.bookmarkId }}\n> 🔥 {{ highlight.popularCount }} 人共读\n{% else %}\n> [{{ highlight.markText | trim }}](<{{ deeplink }}>) ^{{ highlight.bookmarkId }}\n{% endif %}\n\n{% else %}\n\n{% if syncPopularHighlightsToggle and highlight.isPopular %}\n> [{{ highlight.markText | trim }}](<{{ deeplink }}>) ^{{ highlight.bookmarkId }}\n> 🔥 {{ highlight.popularCount }} 人共读\n{% else %}\n> [{{ highlight.markText | trim }}](<{{ deeplink }}>) ^{{ highlight.bookmarkId }}\n{% endif %}\n\n{% endif %}\n{% endfor %}\n{% endfor %}\n",
+      "trimBlocks": true,
+      "isBuiltIn": true,
+      "isReadOnly": true,
+      "source": "builtin"
+    }
+  ],
+  "activeThemeId": "builtin_merged",
+  "wereadApiKey": "wrk-GdObEwE6Q1u7FPxMwz_5HgAA",
+  "apiKeyValid": true,
+  "readingStatsLocation": "/",
+  "statsStartYear": 0,
+  "popularHighlightsCacheTtl": 7
+}
