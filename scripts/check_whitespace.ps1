@@ -43,8 +43,7 @@ function Invoke-DiffWhitespaceCheck {
                 continue
             }
 
-            $issues.Add($line)
-            $issues.Add($addedLine)
+            $issues.Add(("{0}`n{1}" -f $line, $addedLine))
             $i++
             continue
         }

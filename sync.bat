@@ -81,6 +81,13 @@ if not defined HAS_CHANGES goto no_local_changes
 echo 检测到以下本地变更：
 git status --short
 echo.
+echo 正在清理微信读书导出产生的非法尾随空白...
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\normalize_weread_whitespace.ps1"
+if errorlevel 1 (
+    echo [错误] 微信读书导出空白清理失败。
+    goto failed
+)
+echo.
 echo 正在自动暂存以上全部变更并继续同步...
 
 git add -A -- .
@@ -192,6 +199,7 @@ goto failed
 
 :staged_whitespace_failed
 echo [错误] 暂存内容存在非法空白字符，尚未创建提交。
+echo [提示] 微信读书导出已在暂存前自动清理；若仍失败，请根据上方文件和行号处理其他来源的空白问题。
 goto failed
 
 :outgoing_whitespace_failed
