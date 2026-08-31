@@ -1,7 +1,28 @@
 @echo off
 setlocal EnableExtensions DisableDelayedExpansion
+
+rem 从稳定快照执行同步。rebase 可能更新 sync.bat 本身；若直接运行原文件，
+rem cmd.exe 会从旧字节偏移继续读取新文件，并可能把提示文字的残片当成命令。
+if not defined INFINITY_SYNC_SNAPSHOT_ROOT set "INFINITY_SYNC_SNAPSHOT_ROOT=%~dp0"
+if not defined INFINITY_SYNC_SNAPSHOT_FILE set "INFINITY_SYNC_SNAPSHOT_FILE=%TEMP%\infinity-sync-%RANDOM%-%RANDOM%.bat"
+if not defined INFINITY_SYNC_SNAPSHOT (
+    copy /y "%~f0" "%INFINITY_SYNC_SNAPSHOT_FILE%" >nul
+    if errorlevel 1 (
+        echo [错误] 无法创建同步脚本的临时快照。
+        exit /b 1
+    )
+    set "INFINITY_SYNC_SNAPSHOT=1"
+    call "%INFINITY_SYNC_SNAPSHOT_FILE%" %*
+    if errorlevel 1 (
+        del /q "%INFINITY_SYNC_SNAPSHOT_FILE%" >nul 2>&1
+        exit /b 1
+    )
+    del /q "%INFINITY_SYNC_SNAPSHOT_FILE%" >nul 2>&1
+    exit /b 0
+)
+
 chcp 65001 >nul
-cd /d "%~dp0"
+cd /d "%INFINITY_SYNC_SNAPSHOT_ROOT%"
 
 set "REMOTE=origin"
 set "BRANCH=main"
@@ -64,7 +85,7 @@ if exist "%REBASE_MERGE%" goto operation_in_progress
 if exist "%REBASE_APPLY%" goto operation_in_progress
 
 echo [1/6] 校验知识库...
-call "%~dp0validate.bat"
+call "%INFINITY_SYNC_SNAPSHOT_ROOT%validate.bat"
 if errorlevel 1 (
     echo [错误] 仓库校验未通过，未执行提交、拉取或推送。
     goto failed
@@ -82,7 +103,7 @@ echo 检测到以下本地变更：
 git status --short
 echo.
 echo 正在清理微信读书导出产生的非法尾随空白...
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\normalize_weread_whitespace.ps1"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%INFINITY_SYNC_SNAPSHOT_ROOT%scripts\normalize_weread_whitespace.ps1"
 if errorlevel 1 (
     echo [错误] 微信读书导出空白清理失败。
     goto failed
@@ -99,7 +120,7 @@ if errorlevel 1 (
 git diff --cached --quiet
 if not errorlevel 1 goto no_local_changes
 
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\check_whitespace.ps1" -Mode Staged
+powershell -NoProfile -ExecutionPolicy Bypass -File "%INFINITY_SYNC_SNAPSHOT_ROOT%scripts\check_whitespace.ps1" -Mode Staged
 if errorlevel 1 goto staged_whitespace_failed
 
 echo.
@@ -152,13 +173,13 @@ if errorlevel 1 (
     goto failed
 )
 
-call "%~dp0validate.bat"
+call "%INFINITY_SYNC_SNAPSHOT_ROOT%validate.bat"
 if errorlevel 1 (
     echo [错误] 整合远端更新后校验未通过，因此没有推送。
     goto failed
 )
 
-powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\check_whitespace.ps1" -Mode Range -Range "%REMOTE%/%BRANCH%..HEAD"
+powershell -NoProfile -ExecutionPolicy Bypass -File "%INFINITY_SYNC_SNAPSHOT_ROOT%scripts\check_whitespace.ps1" -Mode Range -Range "%REMOTE%/%BRANCH%..HEAD"
 if errorlevel 1 goto outgoing_whitespace_failed
 
 echo.
