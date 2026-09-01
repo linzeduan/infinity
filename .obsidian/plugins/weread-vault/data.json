@@ -7,7 +7,7 @@
     },
     {
       "name": "wr_skey",
-      "value": "8dJejM8W"
+      "value": "Tsvi4UqC"
     },
     {
       "name": "wr_vid",
@@ -31,7 +31,7 @@
   "insertAfter": "<!-- start of weread -->",
   "insertBefore": "<!-- end of weread -->",
   "dailyNotesFormat": "YYYY-MM-DD",
-  "lastCookieTime": 1788179523297,
+  "lastCookieTime": 1788220074051,
   "isCookieValid": true,
   "user": "",
   "userVid": "219406423",
@@ -204,19 +204,19 @@
       "isBuiltIn": true,
       "isReadOnly": true,
       "source": "builtin"
-     },
-     {
-       "id": "infinity_clean_merged",
-       "name": "合并式模板（空白安全）",
-       "description": "基于合并式模板，避免空变量产生非法尾随空格",
-       "template": "# 元数据\n> [!abstract] {{ metaData.title }}\n> - ![ {{ metaData.title }}|200]({{ metaData.cover }})\n> - 书名： {{ metaData.title }}\n> - 作者： {{ metaData.author }}\n> - 简介： {% set intro = metaData.intro | replace(\"\\n\",\"\") | replace(\"\\r\",\"\") %}{{ intro }}\n> - 出版时间： {{ metaData.publishTime }}\n> - ISBN： {{ metaData.isbn }}\n> - 字数：{% if metaData.totalWords %} {{ metaData.totalWords | trim }}{% endif %}\n> - 分类： {{ metaData.category }}\n> - 出版社： {{ metaData.publisher }}\n> - PC地址：{{ metaData.pcUrl }}\n\n# 高亮划线\n{% for chapter in chapterHighlights %}\n{% if chapter.level == 1 %}\n## {{ chapter.chapterTitle }}\n{% elif chapter.level == 2 %}\n### {{ chapter.chapterTitle }}\n{% elif chapter.level == 3 %}\n#### {{ chapter.chapterTitle }}\n{% endif %}\n{% for highlight in chapter.highlights %}\n{% set rangeParts = highlight.range | split(\"-\") %}\n{% set deeplink = \"weread://bestbookmark?bookId=\" + metaData.bookId + \"&chapterUid=\" + highlight.chapterUid + \"&rangeStart=\" + rangeParts[0] + \"&rangeEnd=\" + rangeParts[1] %}\n{% if syncPopularHighlightsToggle and highlight.isPopular and highlight.isUserHighlight %}\n> 📌🔥 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> 🔥 {{ highlight.popularCount }} 人共读\n{% elif syncPopularHighlightsToggle and highlight.isPopular %}\n> 🔥 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> 📊 {{ highlight.popularCount }} 人共读\n{% else %}\n> 📌 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n{% endif %}\n{% if highlight.reviewContent %}\n> 💭 {{ highlight.reviewContent | trim }}\n{% endif %}\n> ⏱ {{ highlight.createTime }} ^{{ highlight.bookmarkId }}\n\n{% endfor %}\n{% endfor %}\n\n# 读书笔记\n{% for chapter in bookReview.chapterReviews %}\n{% if chapter.reviews or chapter.chapterReview %}\n## {{ chapter.chapterTitle }}\n{% if chapter.chapterReviews %}\n{% for chapterReview in chapter.chapterReviews %}\n### 章节评论 No.{{ loop.index }}\n- {{ chapterReview.content }} ^{{ chapterReview.reviewId }}\n    - ⏱ {{ chapterReview.createTime }}\n{% endfor %}\n{% endif %}\n{% if chapter.reviews %}\n{% for review in chapter.reviews %}\n### 划线评论\n> 📌 {{ review.abstract | trim }} ^{{ review.reviewId }}\n    💭{% if review.content %} {{ review.content | trim }}{% endif %}\n    ⏱ {{ review.createTime }}\n{% endfor %}\n{% endif %}\n{% endif %}\n{% endfor %}\n\n# 本书评论\n{% if bookReview.bookReviews %}\n{% for bookReview in bookReview.bookReviews %}\n## 书评 No.{{ loop.index }}\n{{ bookReview.mdContent }} ^{{ bookReview.reviewId }}\n⏱ {{ bookReview.createTime }}\n{% endfor %}\n{% endif %}",
-       "trimBlocks": true,
-       "isBuiltIn": false,
-       "isReadOnly": false,
-       "source": "custom"
-     }
-   ],
-   "activeThemeId": "infinity_clean_merged",
+    },
+    {
+      "id": "infinity_clean_merged",
+      "name": "合并式模板（空白安全）",
+      "description": "基于合并式模板，避免空变量产生非法尾随空格",
+      "template": "# 元数据\n> [!abstract] {{ metaData.title }}\n> - ![ {{ metaData.title }}|200]({{ metaData.cover }})\n> - 书名： {{ metaData.title }}\n> - 作者： {{ metaData.author }}\n> - 简介： {% set intro = metaData.intro | replace(\"\\n\",\"\") | replace(\"\\r\",\"\") %}{{ intro }}\n> - 出版时间： {{ metaData.publishTime }}\n> - ISBN： {{ metaData.isbn }}\n> - 字数：{% if metaData.totalWords %} {{ metaData.totalWords | trim }}{% endif %}\n> - 分类： {{ metaData.category }}\n> - 出版社： {{ metaData.publisher }}\n> - PC地址：{{ metaData.pcUrl }}\n\n# 高亮划线\n{% for chapter in chapterHighlights %}\n{% if chapter.level == 1 %}\n## {{ chapter.chapterTitle }}\n{% elif chapter.level == 2 %}\n### {{ chapter.chapterTitle }}\n{% elif chapter.level == 3 %}\n#### {{ chapter.chapterTitle }}\n{% endif %}\n{% for highlight in chapter.highlights %}\n{% set rangeParts = highlight.range | split(\"-\") %}\n{% set deeplink = \"weread://bestbookmark?bookId=\" + metaData.bookId + \"&chapterUid=\" + highlight.chapterUid + \"&rangeStart=\" + rangeParts[0] + \"&rangeEnd=\" + rangeParts[1] %}\n{% if syncPopularHighlightsToggle and highlight.isPopular and highlight.isUserHighlight %}\n> 📌🔥 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> 🔥 {{ highlight.popularCount }} 人共读\n{% elif syncPopularHighlightsToggle and highlight.isPopular %}\n> 🔥 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n> 📊 {{ highlight.popularCount }} 人共读\n{% else %}\n> 📌 [{{ highlight.markText | trim }}](<{{ deeplink }}>)\n{% endif %}\n{% if highlight.reviewContent %}\n> 💭 {{ highlight.reviewContent | trim }}\n{% endif %}\n> ⏱ {{ highlight.createTime }} ^{{ highlight.bookmarkId }}\n\n{% endfor %}\n{% endfor %}\n\n# 读书笔记\n{% for chapter in bookReview.chapterReviews %}\n{% if chapter.reviews or chapter.chapterReview %}\n## {{ chapter.chapterTitle }}\n{% if chapter.chapterReviews %}\n{% for chapterReview in chapter.chapterReviews %}\n### 章节评论 No.{{ loop.index }}\n- {{ chapterReview.content }} ^{{ chapterReview.reviewId }}\n    - ⏱ {{ chapterReview.createTime }}\n{% endfor %}\n{% endif %}\n{% if chapter.reviews %}\n{% for review in chapter.reviews %}\n### 划线评论\n> 📌 {{ review.abstract | trim }} ^{{ review.reviewId }}\n    💭{% if review.content %} {{ review.content | trim }}{% endif %}\n    ⏱ {{ review.createTime }}\n{% endfor %}\n{% endif %}\n{% endif %}\n{% endfor %}\n\n# 本书评论\n{% if bookReview.bookReviews %}\n{% for bookReview in bookReview.bookReviews %}\n## 书评 No.{{ loop.index }}\n{{ bookReview.mdContent }} ^{{ bookReview.reviewId }}\n⏱ {{ bookReview.createTime }}\n{% endfor %}\n{% endif %}",
+      "trimBlocks": true,
+      "isBuiltIn": false,
+      "isReadOnly": false,
+      "source": "custom"
+    }
+  ],
+  "activeThemeId": "infinity_clean_merged",
   "wereadApiKey": "wrk-GdObEwE6Q1u7FPxMwz_5HgAA",
   "apiKeyValid": true,
   "readingStatsLocation": "/",
