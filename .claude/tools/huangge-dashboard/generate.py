@@ -5,7 +5,9 @@
 阈值出处: 黄哥 260511 终端现金流监测器 / 260518 危机同构 / 260618 沃什 / 260611 黄金
 """
 import json
+import os
 import sys
+import tempfile
 import time
 import urllib.request
 from datetime import datetime
@@ -79,13 +81,44 @@ def make(rows, unit="", digits=2, status=None, reason="", spark_rows=None, extra
     }
 
 
+def publish_page(payload):
+    """只在完整页面就绪后替换旧版；临时文件与目标位于同一文件系统。"""
+    temporary = None
+    try:
+        template = (HERE / "template.html").read_text(encoding="utf-8")
+        marker = "/*__DATA__*/null"
+        if template.count(marker) != 1:
+            raise ValueError("模板必须包含且只包含一个数据占位符")
+        html = template.replace(marker, json.dumps(payload, ensure_ascii=False, allow_nan=False))
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=HERE,
+            prefix=".dashboard-", suffix=".tmp", delete=False,
+        ) as handle:
+            temporary = Path(handle.name)
+            handle.write(html)
+            handle.flush()
+            os.fsync(handle.fileno())
+        temporary.replace(HERE / "dashboard.html")
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
+
+
 def main():
+    try:
+        return generate()
+    except Exception as exc:
+        print(f"FAIL 刷新失败，未发布新页面：{type(exc).__name__}: {exc}")
+        return 1
+
+
+def generate():
     data, errors = {}, []
 
     def safe(key, fn):
         try:
             data[key] = fn()
-        except Exception as e:  # 单个序列失败不影响整体
+        except Exception as e:  # 收集失败原因，任何失败都会阻止发布
             errors.append(f"{key}: {e}")
 
     # ── 支付端 ──
@@ -221,19 +254,18 @@ def main():
         "series": data,
     }
 
-    template = (HERE / "template.html").read_text(encoding="utf-8")
-    html = template.replace("/*__DATA__*/null", json.dumps(payload, ensure_ascii=False))
-    out = HERE / "dashboard.html"
-    out.write_text(html, encoding="utf-8")
-
-    print(f"OK 生成 {out}")
     print(f"   序列 {len(data)} 个成功, {len(errors)} 个失败")
     for e in errors:
         print("   FAIL", e)
+    if errors or not data:
+        print("FAIL 指标未全部成功，保留原有页面及生成时间。")
+        return 1
+    publish_page(payload)
+    print(f"OK 生成 {HERE / 'dashboard.html'}")
     # 汇总预警供日报引用
     lights = {k: v["status"] for k, v in data.items() if v["status"] in ("alert", "warn")}
     print("   预警/关注:", json.dumps(lights, ensure_ascii=False) if lights else "无")
-    return 1 if len(errors) > len(data) else 0
+    return 0
 
 
 if __name__ == "__main__":

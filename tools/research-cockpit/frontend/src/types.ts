@@ -79,6 +79,7 @@ export interface DashboardData {
     threshold: number;
     remaining: number;
     due: boolean;
+    warnings: string[];
   }>;
   macro: {
     available: boolean;

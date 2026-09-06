@@ -63,7 +63,7 @@ export default function DashboardPage() {
             <Metric icon={<Database />} label="原始资料" value={data.health.source_files} note={`${data.health.indexed_documents} 份已进入本地索引`} tone="lime" />
             <Metric icon={<BookOpen />} label="知识产物" value={data.health.knowledge_markdown} note={`${data.health.indexed_chunks.toLocaleString()} 个可检索片段`} tone="cyan" />
             <Metric icon={<Target />} label="预测账本" value={data.health.prediction_rows} note={`${data.prediction_queue.overdue.length} 条已到期未验证`} tone="amber" />
-            <Metric icon={<FileWarning />} label="系统提醒" value={data.health.navigation_warnings.length + data.changes.unprocessed.length + data.changes.missing_or_moved.length} note={data.health.git_dirty ? "工作区存在未提交变化" : "Git 工作区干净"} tone="rose" />
+            <Metric icon={<FileWarning />} label="系统提醒" value={data.health.navigation_warnings.length + data.changes.unprocessed.length + data.changes.missing_or_moved.length + data.models.filter((model) => model.warnings.length > 0).length} note={data.health.git_dirty ? "工作区存在未提交变化" : "Git 工作区干净"} tone="rose" />
           </section>
 
           <section className="dashboard-grid">
@@ -106,6 +106,12 @@ export default function DashboardPage() {
               <PanelHeader eyebrow="SOURCE MODELS" title="信源模型节奏" />
               <div className="model-list">
                 {data.models.map((model) => {
+                  if (model.warnings.length) {
+                    return <div key={model.source}>
+                      <div className="model-head"><strong>{model.source}</strong><span>刷新记录待核对</span></div>
+                      {model.warnings.map((warning) => <p key={warning} role="alert">{warning}</p>)}
+                    </div>;
+                  }
                   const progress = Math.min(100, Math.round((model.articles_since_model / model.threshold) * 100));
                   return <div key={model.source}>
                     <div className="model-head"><strong>{model.source}</strong><span>{model.due ? "应刷新" : `还差 ${model.remaining} 篇`}</span></div>

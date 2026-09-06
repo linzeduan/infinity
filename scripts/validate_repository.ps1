@@ -83,6 +83,8 @@ if ($errors.Count -eq 0) {
     )
     foreach ($file in $sourceFiles) {
         $relative = $file.FullName.Substring($RepositoryRoot.Length + 1).Replace('\', '/')
+        # 微信读书走专属路由，仍计入资料总数与编码校验。
+        if ($relative.StartsWith('原始资料/微信读书/', [StringComparison]::OrdinalIgnoreCase)) { continue }
         if (-not $ledgerRaw.Contains($relative)) {
             Add-ValidationWarning "Source file is not present in the ledger under its current full path: $relative"
         }

@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 import subprocess
+import sys
 from collections import Counter, defaultdict
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -14,6 +15,10 @@ from .parsers import normalize_deadline, parse_table, prediction_status
 
 
 SOURCE_PATH_RE = re.compile(r"原始资料/[^|`\r\n]+?\.(?:md|pdf|png|jpg|jpeg|docx)", re.I)
+
+
+def ordinary_source(path: str) -> bool:
+    return not path.replace("\\", "/").casefold().startswith("原始资料/微信读书/")
 
 
 class VaultRepository:
@@ -119,15 +124,34 @@ class VaultRepository:
                 for row in source_rows
                 if "_model_" in row["output"] or "综合模型" in row["mode"] or "模型刷新" in row["mode"]
             ]
-            last_model = max(model_rows, key=lambda row: row["position"]) if model_rows else None
+            # 补录可追加在表尾，最新事件应按原刷新日期选择。
+            last_model = max(model_rows, key=lambda row: (row["processed_at"][:10], row["position"])) if model_rows else None
             after_position = last_model["position"] if last_model else -1
-            articles_after = sum(
-                1
-                for row in source_rows
-                if row["position"] > after_position
-                and re.fullmatch(r"\d+", row["id"])
-                and "原始资料/" in row["source_path"]
-            )
+            coverage = re.search(r"覆盖截至\s*#(\d+)", last_model["source_path"]) if last_model else None
+            after_id = int(coverage.group(1)) if coverage else None
+            articles_after = 0
+            seen_outputs: set[str] = set()
+            for row in sorted(source_rows, key=lambda row: int(row["id"]) if row["id"].isdigit() else -1):
+                paths = SOURCE_PATH_RE.findall(row["source_path"])
+                if not row["id"].isdigit() or not any(
+                    ordinary_source(path) and path.startswith(f"原始资料/博客/{source}/") for path in paths
+                ):
+                    continue
+                # 首篇轻量学习也可产出 concept/framework，不能仅按 analysis 文件名计数。
+                if ".md" not in row["output"] or "_model_" in row["output"] or row["words"] == "0" or "重复资料" in row["mode"]:
+                    continue
+                output = row["output"].split(".md", 1)[0]
+                if output in seen_outputs:
+                    continue
+                seen_outputs.add(output)
+                is_after = int(row["id"]) > after_id if after_id is not None else row["position"] > after_position
+                if is_after:
+                    articles_after += 1
+            warnings = self._model_warnings(source, last_model)
+            if last_model and "覆盖截至" in last_model["source_path"] and coverage is None:
+                warnings.append("刷新覆盖编号无法核实")
+            if after_id is not None and not any(row["id"] == str(after_id) for row in rows):
+                warnings.append(f"刷新覆盖编号 #{after_id} 不存在")
             threshold = thresholds["refresh"] if last_model else thresholds["first"]
             states.append(
                 {
@@ -138,9 +162,41 @@ class VaultRepository:
                     "threshold": threshold,
                     "remaining": max(0, threshold - articles_after),
                     "due": articles_after >= threshold,
+                    "warnings": warnings,
                 }
             )
         return states
+
+    def _model_warnings(self, source: str, event: dict | None) -> list[str]:
+        if event is None:
+            models = list((self.settings.knowledge_root / source).glob("*_model_*.md"))
+            return ["存在模型文件，但账本没有模型事件"] if models else []
+        match = re.search(r"([^|]+?\.md)", event["output"])
+        if not match:
+            return ["模型事件没有可核对的输出路径"]
+        path = (self.settings.knowledge_root / match.group(1).strip()).resolve()
+        if not path.is_relative_to(self.settings.knowledge_root.resolve()):
+            return ["模型输出路径超出知识库"]
+        try:
+            text = path.read_text(encoding="utf-8-sig")
+        except (OSError, UnicodeError):
+            return ["模型文件缺失或无法读取"]
+        marker = re.search(r"^>\s*\*\*刷新状态\*\*[^\n]*", text, re.M)
+        if not marker:
+            return ["模型正文缺少可核对的刷新标记"]
+        event_date = re.search(r"\d{4}-\d{2}-\d{2}", event["processed_at"])
+        model_date = re.search(r"\d{4}-\d{2}-\d{2}", marker.group())
+        model_id = re.search(r"\bM\d+\b", marker.group())
+        if not event_date or not model_date or not model_id:
+            return ["模型刷新日期或事件编号无法核实"]
+        warnings = []
+        if event_date.group() != model_date.group() or event["id"] != model_id.group():
+            warnings.append("账本最新事件与模型正文的刷新日期或编号不一致")
+        event_version = re.search(r"\bv\d+(?:\.\d+)+", event["output"])
+        title = re.search(r"^# .+$", text, re.M)
+        if event_version and (not title or not re.search(rf"{re.escape(event_version.group())}(?![\d.])", title.group())):
+            warnings.append("账本模型版本与模型标题不一致")
+        return warnings
 
     def macro_status(self) -> dict:
         dashboard = self.settings.macro_root / "dashboard.html"
@@ -172,7 +228,7 @@ class VaultRepository:
             return {"ok": False, "output": "宏观看板生成器不存在", "status": self.macro_status()}
         try:
             result = subprocess.run(
-                ["python", str(generator)],
+                [sys.executable, str(generator)],
                 cwd=self.settings.macro_root,
                 capture_output=True,
                 text=True,
@@ -186,6 +242,8 @@ class VaultRepository:
             return {"ok": result.returncode == 0, "output": output[-5000:], "status": self.macro_status()}
         except subprocess.TimeoutExpired:
             return {"ok": False, "output": "刷新超过 120 秒，已停止；最后可用页面未删除。", "status": self.macro_status()}
+        except OSError as exc:
+            return {"ok": False, "output": f"无法启动刷新：{exc}", "status": self.macro_status()}
 
     def document(self, document_id: int) -> dict | None:
         with self.database.connect() as connection:
@@ -204,8 +262,10 @@ class VaultRepository:
         rows = self.processed_rows()
         actual_sources = self._actual_source_paths()
         ledger_sources = self._ledger_source_paths(rows)
-        unprocessed = sorted(actual_sources - ledger_sources)
-        missing = sorted(ledger_sources - actual_sources)
+        ordinary_actual = {path for path in actual_sources if ordinary_source(path)}
+        ordinary_ledger = {path for path in ledger_sources if ordinary_source(path)}
+        unprocessed = sorted(ordinary_actual - ordinary_ledger)
+        missing = sorted(ordinary_ledger - ordinary_actual)
 
         pending = [item for item in predictions if item["status"] == "pending"]
         overdue: list[dict] = []
