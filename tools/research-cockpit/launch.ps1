@@ -2,14 +2,14 @@ $ErrorActionPreference = "Stop"
 $AppRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $SetupScript = Join-Path $AppRoot "setup.ps1"
 $RunScript = Join-Path $AppRoot "run.ps1"
-$VenvPython = Join-Path $AppRoot ".venv\Scripts\python.exe"
-$FrontendIndex = Join-Path $AppRoot "frontend\dist\index.html"
+. (Join-Path $AppRoot 'runtime.ps1')
 
 Set-Location -LiteralPath $AppRoot
 
 try {
-    if (-not (Test-Path -LiteralPath $VenvPython) -or -not (Test-Path -LiteralPath $FrontendIndex)) {
-        Write-Host "First launch: installing local dependencies..." -ForegroundColor Yellow
+    $State = Get-CockpitSetupState $AppRoot
+    if ($State.NeedsPython -or $State.NeedsFrontend) {
+        Write-Host "Preparing missing or outdated dependencies/build..." -ForegroundColor Yellow
         & powershell -NoProfile -ExecutionPolicy Bypass -File $SetupScript
         if ($LASTEXITCODE -ne 0) { throw "Setup failed." }
     }

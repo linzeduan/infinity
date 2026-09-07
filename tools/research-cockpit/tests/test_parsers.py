@@ -1,4 +1,5 @@
 import sys
+import pytest
 from types import SimpleNamespace
 
 from backend.parsers import (
@@ -76,3 +77,27 @@ def test_prediction_status_order_matters():
     assert prediction_status("✅ 命中") == "hit"
     assert prediction_status("❌ 落空") == "miss"
     assert prediction_status("待验证（出现反向证据）") == "pending"
+
+
+@pytest.mark.parametrize("raw, expected", [
+    ("2026年9月6日", ("2026-09-06", "day")),
+    ("2026 年 9 月 6 日", ("2026-09-06", "day")),
+    ("2026/09/06", ("2026-09-06", "day")),
+    ("2026-09", ("2026-09-30", "month")),
+    ("2026年9月", ("2026-09-30", "month")),
+    ("2026-06月内", ("2026-06-30", "month")),
+    ("2026-12月FOMC", ("2026-12-31", "month")),
+    ("2026 H1", ("2026-06-30", "half-year")),
+    ("2026-H2", ("2026-12-31", "half-year")),
+    ("2026 下半年", ("2026-12-31", "half-year")),
+    ("2026年9月6日至2026年10月2日", ("2026-10-02", "day")),
+    ("2026年9月6日至2026 Q4", ("2026-12-31", "quarter")),
+    ("2028年2月29日", ("2028-02-29", "day")),
+    ("2026年2月29日", (None, "unknown")),
+    ("2026-13", (None, "unknown")),
+    ("2026-09-31", (None, "unknown")),
+    ("待定", (None, "unknown")),
+    ("2026", ("2026-12-31", "year-approx")),
+])
+def test_deadline_precision_and_invalid_dates(raw, expected):
+    assert normalize_deadline(raw) == expected

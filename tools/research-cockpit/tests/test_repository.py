@@ -162,3 +162,56 @@ def test_powershell_validator_obeys_directory_boundary(repo):
     assert "ordinary.md" in output
     assert "reading.md" not in output
     assert "Source files (excluding .gitkeep): 2" in output
+
+
+def run_validator(repo):
+    script = Path(__file__).resolve().parents[3] / "scripts/validate_repository.ps1"
+    result = subprocess.run(["powershell", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", str(script),
+                             "-RepositoryRoot", str(repo.settings.vault_root)], capture_output=True, check=False)
+    return result.returncode, result.stdout.decode("utf-8", errors="replace")
+
+
+def test_bidirectional_validation_uses_fields_and_full_paths(repo):
+    knowledge = repo.settings.knowledge_root
+    source = repo.settings.source_root / "博客/黄哥/new.md"
+    source.parent.mkdir(parents=True)
+    source.write_text("# 新资料\n", encoding="utf-8")
+    (knowledge / "a").mkdir()
+    (knowledge / "b").mkdir()
+    for folder in ("a", "b"):
+        (knowledge / folder / "same.md").write_text("# 同名文件\n", encoding="utf-8")
+    (knowledge / "预测追踪表.md").write_text("# 预测\n", encoding="utf-8")
+    (knowledge / "目录.md").write_text("[a](a/same.md)\n[b](b/missing.md)\n[预测](预测追踪表.md)\n", encoding="utf-8")
+    row = article(1, output="a/same.md / b/absent.md")
+    # 出现在备注里不等于来源字段已登记。
+    row[-1] = "✓ 提到 原始资料/博客/黄哥/new.md"
+    write_ledger(repo, [row])
+    code, output = run_validator(repo)
+    assert code == 1
+    assert "Ledger source missing or moved (#1)" in output
+    assert "Source file is not present" in output and "new.md" in output
+    assert "Ledger output missing (#1): b/absent.md" in output
+    assert "Index link target does not exist: b/missing.md" in output
+    assert "b\\same.md" in output
+    assert len(repo._navigation_warnings()) == 2
+    assert len(repo._ledger_output_warnings(repo.processed_rows())) == 1
+
+
+def test_deleted_source_keeps_output_and_encoded_navigation(repo):
+    knowledge = repo.settings.knowledge_root
+    (knowledge / "space note.md").write_text("# 笔记\n", encoding="utf-8")
+    (knowledge / "second.md").write_text("# 第二篇\n", encoding="utf-8")
+    (knowledge / "预测追踪表.md").write_text("# 预测\n", encoding="utf-8")
+    (knowledge / "目录.md").write_text("[一](space%20note.md#标题)\n[二](second.md)\n[预测](预测追踪表.md)\n", encoding="utf-8")
+    row = article(1, output="space note.md / second.md")
+    row[-1] = "已删除（原始资料删除，输出保留）"
+    write_ledger(repo, [row])
+    code, output = run_validator(repo)
+    assert code == 0, output
+    assert "0 warnings" in output
+    assert repo._navigation_warnings() == []
+    assert repo._ledger_output_warnings(repo.processed_rows()) == []
+    (knowledge / "second.md").unlink()
+    code, output = run_validator(repo)
+    assert code == 1
+    assert "Ledger output missing" in output

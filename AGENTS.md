@@ -111,7 +111,7 @@ YYYY-MM-DD_[类型]_[主题].md
 
 ## 校验与工具
 
-本仓库没有传统单元测试或 CI。最低交付校验是：
+知识库本身没有传统单元测试或 CI；研究驾驶舱的后端测试与前端构建命令见 `tools/research-cockpit/README.md`，修改辅助工具时运行相关测试。最低交付校验是：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/validate_repository.ps1

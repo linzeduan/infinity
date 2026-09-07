@@ -72,6 +72,9 @@ export default function DashboardPage() {
               {(data.changes.unprocessed.length > 0 || data.changes.missing_or_moved.length > 0) && (
                 <div className="alert-strip"><AlertTriangle size={17} /><span>发现 {data.changes.unprocessed.length} 个未处理文件、{data.changes.missing_or_moved.length} 个路径漂移。</span></div>
               )}
+              {data.health.navigation_warnings.map((warning) => (
+                <div className="alert-strip" key={warning}><AlertTriangle size={17} /><span>{warning}</span></div>
+              ))}
               <div className="recent-list">
                 {data.changes.recent.slice(0, 7).map((item) => (
                   <button key={item.id} onClick={() => setDocumentId(item.id)}>

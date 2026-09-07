@@ -224,30 +224,35 @@ def normalize_deadline(raw: str) -> tuple[str | None, str]:
     text = re.sub(r"[*_`]", "", raw)
     candidates: list[tuple[date, str]] = []
 
-    for year, month, day in re.findall(r"(20\d{2})[-/.年](\d{1,2})[-/.月](\d{1,2})", text):
-        try:
-            candidates.append((date(int(year), int(month), int(day)), "day"))
-        except ValueError:
-            pass
+    def month_end(year: str, month: int) -> date:
+        return date(int(year), month, calendar.monthrange(int(year), month)[1])
 
-    for year, quarter in re.findall(r"(20\d{2})\s*[-年]?\s*Q([1-4])", text, re.I):
-        month = int(quarter) * 3
-        candidates.append((date(int(year), month, calendar.monthrange(int(year), month)[1]), "quarter"))
-
-    for year, half in re.findall(r"(20\d{2})\s*年?\s*(上|下)半年", text):
-        month = 6 if half == "上" else 12
-        candidates.append((date(int(year), month, calendar.monthrange(int(year), month)[1]), "half-year"))
-
-    for year, month in re.findall(r"(20\d{2})[-/.年](\d{1,2})\s*月", text):
-        month_i = int(month)
-        if 1 <= month_i <= 12:
-            candidates.append((date(int(year), month_i, calendar.monthrange(int(year), month_i)[1]), "month"))
-
-    for year in re.findall(r"(20\d{2})\s*(?:年内|年底|年末|底)", text):
-        candidates.append((date(int(year), 12, 31), "year"))
+    # 高精度片段先消费，避免“9月6日”又被当成“9月末”。非法日期也不降级成年底。
+    patterns = [
+        (r"(?<!\d)(20\d{2})\s*[-/.年]\s*(\d{1,2})\s*[-/.月]\s*(\d{1,2})(?!\d)\s*日?", "day",
+         lambda y, m, d: date(int(y), int(m), int(d))),
+        (r"(?<!\d)(20\d{2})\s*[-年]?\s*Q([1-4])(?!\d)", "quarter",
+         lambda y, q: month_end(y, int(q) * 3)),
+        (r"(?<!\d)(20\d{2})\s*年?\s*(上|下)半年", "half-year",
+         lambda y, half: month_end(y, 6 if half == "上" else 12)),
+        (r"(?<!\d)(20\d{2})\s*[-年]?\s*H([12])(?!\d)", "half-year",
+         lambda y, half: month_end(y, int(half) * 6)),
+        (r"(?<!\d)(20\d{2})\s*[-/.年]\s*(\d{1,2})(?!\d)\s*月?", "month",
+         lambda y, m: month_end(y, int(m))),
+        (r"(?<!\d)(20\d{2})\s*(?:年内|年底|年末|底)", "year",
+         lambda y: date(int(y), 12, 31)),
+    ]
+    for pattern, precision, convert in patterns:
+        def consume(match):
+            try:
+                candidates.append((convert(*match.groups()), precision))
+            except (ValueError, calendar.IllegalMonthError):
+                pass
+            return " " * len(match.group())
+        text = re.sub(pattern, consume, text, flags=re.I)
 
     if not candidates:
-        years = re.findall(r"20\d{2}", text)
+        years = re.findall(r"(?<!\d)20\d{2}(?!\d)", text)
         if len(years) == 1:
             candidates.append((date(int(years[0]), 12, 31), "year-approx"))
     if not candidates:

@@ -96,15 +96,35 @@ class VaultRepository:
             return ["知识库/目录.md 不存在"]
         text = index_path.read_text(encoding="utf-8-sig", errors="replace")
         links: set[str] = set()
-        for target in re.findall(r"\]\(([^)#?]+\.md)(?:#[^)]*)?\)", text):
-            links.add(unquote(target).replace("\\", "/").lstrip("./"))
         warnings: list[str] = []
+        for target in re.findall(r"\[[^\]]+\]\(([^)]+)\)", text):
+            if re.match(r"^(?:[a-zA-Z][a-zA-Z0-9+.-]*:|#)", target):
+                continue
+            decoded = unquote(re.split(r"[#?]", target.strip("<>"))[0]).replace("\\", "/")
+            path = (self.settings.knowledge_root / decoded).resolve()
+            links.add(str(path).casefold())
+            if not path.is_file():
+                warnings.append(f"目录链接失效：{target}")
         for path in self.settings.knowledge_root.rglob("*.md"):
             relative = path.relative_to(self.settings.knowledge_root).as_posix()
             if relative in {"_processed.md", "目录.md"}:
                 continue
-            if relative not in links and path.name not in {Path(link).name for link in links}:
+            if str(path.resolve()).casefold() not in links:
                 warnings.append(f"目录未覆盖：知识库/{relative}")
+        return warnings
+
+    def _ledger_output_warnings(self, rows: list[dict]) -> list[str]:
+        warnings = []
+        for row in rows:
+            if "输出已删除" in row["status"]:
+                continue
+            for part in re.split(r"\s+[+/＋]\s+", row["output"]):
+                match = re.match(r"([^|]+?\.md)(?=$|[（(])", part)
+                if not match:
+                    continue
+                path = (self.settings.knowledge_root / match.group(1)).resolve()
+                if not path.is_relative_to(self.settings.knowledge_root.resolve()) or not path.is_file():
+                    warnings.append(f"账本输出缺失或路径无效（#{row['id']}）：{match.group(1)}")
         return warnings
 
     def _model_states(self, rows: list[dict]) -> list[dict]:
@@ -315,7 +335,7 @@ class VaultRepository:
             shell=False,
         )
         git_lines = [line for line in git_result.stdout.splitlines() if line.strip()]
-        navigation_warnings = self._navigation_warnings()
+        navigation_warnings = self._navigation_warnings() + self._ledger_output_warnings(rows)
         numeric_rows = [row for row in rows if re.fullmatch(r"\d+", row["id"])]
 
         return {

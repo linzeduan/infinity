@@ -2,7 +2,9 @@
 
 ## 一键启动
 
-在仓库根目录双击 `启动研究驾驶舱.cmd`。首次运行会自动安装 Python/Node 依赖并构建前端，之后会直接启动本地服务并打开浏览器；关闭命令窗口或按 `Ctrl+C` 即可停止。
+在仓库根目录双击 `启动研究驾驶舱.cmd`。脚本会寻找已安装的 Python 3.12，按需安装依赖、重建过期前端，等服务健康检查通过后再打开浏览器。按 `Ctrl+C` 停止本次启动的服务；已运行的同一 Vault 服务会被复用。
+
+前提是已安装 Python 3.12 和 Node.js/npm；缺少时会给出安装提示，不替换系统默认 Python。源码或依赖清单未变化时不会重复安装、构建。启动日志保存在本工具的 `.cache/` 中，不进入 Git。
 
 Infinity 的本地只读研究驾驶舱。它直接读取当前 Obsidian Vault，把 Markdown、可提取文本的 PDF 和 DOCX 建成本地索引；`原始资料/` 与 `知识库/` 始终是唯一事实源。
 
@@ -39,6 +41,8 @@ notepad .env.local
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File run.ps1
 ```
+
+同步代码后优先双击根目录启动入口，它会检查构建是否过期。仅验证启动、不打开浏览器并在验证后停止本次服务，可运行 `powershell -NoProfile -ExecutionPolicy Bypass -File run.ps1 -CheckOnly`；首次索引较慢时可加 `-StartupTimeoutSeconds 300`。
 
 浏览器打开 <http://127.0.0.1:8765>。服务端拒绝监听非 localhost 地址。
 
