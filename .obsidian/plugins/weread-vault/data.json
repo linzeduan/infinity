@@ -65,10 +65,31 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 360,
-  "lastSyncTime": 1788180423258,
-  "lastSyncBookCount": 0,
+  "lastSyncTime": 1789034194902,
+  "lastSyncBookCount": 2,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1789034191692",
+      "timestamp": 1789034191692,
+      "totalBooks": 6,
+      "syncedBooks": 2,
+      "skippedBooks": 0,
+      "duration": 3.21,
+      "notes": [
+        {
+          "bookId": "23562048",
+          "title": "堂吉诃德（全2册）",
+          "filePath": "原始资料/微信读书/堂吉诃德（全2册）-【西】塞万提斯.md"
+        },
+        {
+          "bookId": "27027627",
+          "title": "山月记",
+          "filePath": "原始资料/微信读书/山月记-中岛敦.md"
+        }
+      ],
+      "success": true
+    },
     {
       "id": "sync-1788180423034",
       "timestamp": 1788180423034,

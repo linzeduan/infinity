@@ -1,0 +1,98 @@
+{
+  "bookId": "27027627",
+  "cachedAt": 1789034194896,
+  "ttl": 7,
+  "items": [],
+  "chapters": [
+    {
+      "bookId": "27027627",
+      "chapterUid": 1,
+      "chapterIdx": 1,
+      "title": "封面"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 2,
+      "chapterIdx": 2,
+      "title": "版权信息"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 3,
+      "chapterIdx": 3,
+      "title": "代序"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 4,
+      "chapterIdx": 4,
+      "title": "山月记"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 5,
+      "chapterIdx": 5,
+      "title": "弟子"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 6,
+      "chapterIdx": 6,
+      "title": "李陵"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 7,
+      "chapterIdx": 7,
+      "title": "名人传"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 8,
+      "chapterIdx": 8,
+      "title": "盈虚"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 9,
+      "chapterIdx": 9,
+      "title": "牛人"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 10,
+      "chapterIdx": 10,
+      "title": "悟净出世"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 11,
+      "chapterIdx": 11,
+      "title": "悟净叹异——沙门悟净之手记"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 12,
+      "chapterIdx": 12,
+      "title": "妖氛录"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 13,
+      "chapterIdx": 13,
+      "title": "汉诗"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 14,
+      "chapterIdx": 14,
+      "title": "译后记 “汉学”、文体和中岛敦"
+    },
+    {
+      "bookId": "27027627",
+      "chapterUid": 15,
+      "chapterIdx": 15,
+      "title": "结语"
+    }
+  ]
+}
