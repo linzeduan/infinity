@@ -65,10 +65,20 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 360,
-  "lastSyncTime": 1789034194902,
-  "lastSyncBookCount": 2,
+  "lastSyncTime": 1789106219946,
+  "lastSyncBookCount": 0,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1789106219565",
+      "timestamp": 1789106219565,
+      "totalBooks": 6,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.378,
+      "notes": [],
+      "success": true
+    },
     {
       "id": "sync-1789034191692",
       "timestamp": 1789034191692,
