@@ -65,10 +65,20 @@
   "cookieRefreshInterval": 12,
   "scheduledSyncToggle": true,
   "scheduledSyncInterval": 360,
-  "lastSyncTime": 1791533579651,
+  "lastSyncTime": 1792747469367,
   "lastSyncBookCount": 0,
   "lastSyncBookTitles": [],
   "syncLogs": [
+    {
+      "id": "sync-1792747469079",
+      "timestamp": 1792747469079,
+      "totalBooks": 6,
+      "syncedBooks": 0,
+      "skippedBooks": 0,
+      "duration": 0.286,
+      "notes": [],
+      "success": true
+    },
     {
       "id": "sync-1791533579314",
       "timestamp": 1791533579314,
@@ -168,47 +178,6 @@
       "skippedBooks": 0,
       "duration": 0.147,
       "notes": [],
-      "success": true
-    },
-    {
-      "id": "sync-1788174619233",
-      "timestamp": 1788174619233,
-      "totalBooks": 6,
-      "syncedBooks": 6,
-      "skippedBooks": 0,
-      "duration": 3.472,
-      "notes": [
-        {
-          "bookId": "23562048",
-          "title": "堂吉诃德（全2册）",
-          "filePath": "原始资料/微信读书/堂吉诃德（全2册）-【西】塞万提斯.md"
-        },
-        {
-          "bookId": "27027627",
-          "title": "山月记",
-          "filePath": "原始资料/微信读书/山月记-中岛敦.md"
-        },
-        {
-          "bookId": "3300017874",
-          "title": "厌女（增订本）",
-          "filePath": "原始资料/微信读书/厌女（增订本）-【日】上野千鹤子.md"
-        },
-        {
-          "bookId": "35138299",
-          "title": "奥黛丽赫本：一辈子活在优雅里",
-          "filePath": "原始资料/微信读书/奥黛丽赫本：一辈子活在优雅里-艾略.md"
-        },
-        {
-          "bookId": "33810600",
-          "title": "高效能人士的七个习惯（30周年纪念版）（全新增订版）",
-          "filePath": "原始资料/微信读书/高效能人士的七个习惯（30周年纪念版）（全新增订版）-史蒂芬·柯维.md"
-        },
-        {
-          "bookId": "821366",
-          "title": "飞鸟集",
-          "filePath": "原始资料/微信读书/飞鸟集-【印度】泰戈尔.md"
-        }
-      ],
       "success": true
     }
   ],
